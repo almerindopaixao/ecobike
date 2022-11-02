@@ -18,25 +18,36 @@ export class MapGraph {
     // Lista de arestas
     private _edges: MapEdge[] = [];
 
+    private static INSTANCE: MapGraph;
+
+    /**
+     * Singleton (utilize este método para instanciar a classe)
+     * @returns 
+     */
+    public static getInstance(): MapGraph {
+        if (!this.INSTANCE) this.INSTANCE = new MapGraph();
+        return this.INSTANCE;
+    }
+
     public addVertex(location: GeographicPoint): boolean {
         if (!location) return false;
 
-        const n = this.vertices.get(location.toJson());
+        const n = this._vertices.get(location.toJson());
 
         if (n) return false;
 
         const node = new MapNode(location);
-        this.vertices.set(location.toJson(), node);
+        this._vertices.set(location.toJson(), node);
         return true;
     }
 
-    public get vertices(): Map<string, MapNode>{
-        return this._vertices;
+    public get vertices(): GeographicPoint[] {
+        return Array.from(this._vertices, ([key]) => new GeographicPoint(JSON.parse(key)));
     }
 
     public addEdge(from: GeographicPoint, to: GeographicPoint, roadName: string, length: number) {
-        const n1 = this.vertices.get(from.toJson());
-        const n2 = this.vertices.get(to.toJson());
+        const n1 = this._vertices.get(from.toJson());
+        const n2 = this._vertices.get(to.toJson());
 
         if (!n1 || !n2) throw new Error('Pontos não encontrados no grafo');
 
@@ -54,19 +65,17 @@ export class MapGraph {
         // Verificar se o usuário selecionou os pontos de inicio e destino
         if (!start || !goal) throw new Error('start e goal são obrigatórios');
 
-
-
         const toExpore = new PriorityQueue<MapNode>({ comparator: MapNode.compare });
         const visited: MapNode[] = [];
         const parentMap =  new Map<string, MapNode>();
 
-        const startNode = this.vertices.get(start.toJson());
-        const goalNode = this.vertices.get(goal.toJson());
+        const startNode = this._vertices.get(start.toJson());
+        const goalNode = this._vertices.get(goal.toJson());
 
-        // Verificar se os pontos cleselecionados existem no grafo
+        // Verificar se os pontos selecionados existem no grafo
         if (!startNode || !goalNode) throw new Error('start ou goal não encontrados no grafo');
 
-        for (let node of this.vertices.values()) {
+        for (let node of this._vertices.values()) {
             node.distance = Infinity;
         }
 
@@ -114,5 +123,11 @@ export class MapGraph {
         path.unshift(start.location);
 
         return { path, distance: goal.actualDistance };
+    }
+
+    public getNextVertex(coord: GeographicPoint): GeographicPoint {
+        return this.vertices.reduce((prev, curr) => {
+            return coord.distance(prev) < coord.distance(curr) ? prev : curr;
+        });
     }
 }
