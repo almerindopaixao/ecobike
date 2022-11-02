@@ -6,7 +6,7 @@ export class MapNode {
 
     public distance: number = 0;
 
-    public predictedDistance: number = 0;
+    public actualDistance: number = 0;
 
     constructor(private _location: GeographicPoint) {}
 

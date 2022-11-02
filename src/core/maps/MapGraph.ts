@@ -3,6 +3,11 @@ import { PriorityQueue } from "../queue/PriorityQueue";
 import { MapEdge } from "./MapEdge";
 import { MapNode } from "./MapNode";
 
+interface ResultSearch {
+    path: GeographicPoint[],
+    distance: number;
+}
+
 /**
  * @description Classe Responsável por fazer o mapeamento entre o grafo e o mapa
  */
@@ -45,7 +50,7 @@ export class MapGraph {
         return this._edges;
     }
 
-    public aStarSearch(start: GeographicPoint, goal: GeographicPoint): GeographicPoint[] | null {
+    public aStarSearch(start: GeographicPoint, goal: GeographicPoint): ResultSearch | null {
         // Verificar se o usuário selecionou os pontos de inicio e destino
         if (!start || !goal) throw new Error('start e goal são obrigatórios');
 
@@ -60,8 +65,6 @@ export class MapGraph {
 
         // Verificar se os pontos cleselecionados existem no grafo
         if (!startNode || !goalNode) throw new Error('start ou goal não encontrados no grafo');
-
-        startNode.distance = 0;
 
         for (let node of this.vertices.values()) {
             node.distance = Infinity;
@@ -82,12 +85,12 @@ export class MapGraph {
                 for (let node of next.getNeighbors()) {
                     if (!visited.find((value) => value.equals(node))) {
                         const nodeLocation = node.location;
-                        const startToNode = next.predictedDistance + next.getDistanceTo(node);
+                        const startToNode = next.actualDistance + next.getDistanceTo(node);
                         const predictedDistance = startToNode + nodeLocation.distance(goal);
                         
                         if (predictedDistance < node.distance) {
                             node.distance = predictedDistance;
-                            node.predictedDistance = startToNode;
+                            node.actualDistance = startToNode;
                             parentMap.set(node.location.toJson(), next);
                             toExpore.add(node);
                         }
@@ -99,7 +102,7 @@ export class MapGraph {
         return null;
     }
 
-    private reconstructPath(start: MapNode, goal: MapNode, parentMap: Map<string, MapNode>): GeographicPoint[] {
+    private reconstructPath(start: MapNode, goal: MapNode, parentMap: Map<string, MapNode>): ResultSearch {
         const path: GeographicPoint[] = [];
         let current: MapNode | undefined = goal;
 
@@ -109,7 +112,7 @@ export class MapGraph {
         }
 
         path.unshift(start.location);
-        
-        return path;
+
+        return { path, distance: goal.actualDistance };
     }
 }
