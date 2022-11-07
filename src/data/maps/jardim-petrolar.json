@@ -1,0 +1,167 @@
+[
+    {
+        "start": {
+            "latitude": -12.155674,
+            "longitude": -38.411292
+        },
+        "end": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "roadName": "R. Turmalina"
+    },
+    {
+        "start": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "end": {
+            "latitude": -12.155674,
+            "longitude": -38.411292
+        },
+        "roadName": "R. Turmalina"
+    },
+    {
+        "start": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "end": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "end": {
+            "latitude": -12.151805,
+            "longitude": -38.413195
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.151805,
+            "longitude": -38.413195
+        },
+        "end": {
+            "latitude": -12.150441,
+            "longitude": -38.413871
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.150441,
+            "longitude": -38.413871
+        },
+        "end": {
+            "latitude": -12.149260,
+            "longitude": -38.414470
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.149260,
+            "longitude": -38.414470
+        },
+        "end": {
+            "latitude": -12.148358,
+            "longitude": -38.415004
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.155725,
+            "longitude": -38.412029
+        },
+        "end": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "end": {
+            "latitude": -12.153322,
+            "longitude": -38.413171
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.153322,
+            "longitude": -38.413171
+        },
+        "end": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153322,
+            "longitude": -38.413171
+        },
+        "end": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.152082,
+            "longitude": -38.413774
+        },
+        "end": {
+            "latitude": -12.151805,
+            "longitude": -38.413195
+        },
+        "roadName": "Av Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152082,
+            "longitude": -38.413774
+        },
+        "end": {
+            "latitude": -12.149518,
+            "longitude": -38.415090
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.149518,
+            "longitude": -38.415090
+        },
+        "end": {
+            "latitude": -12.148203,
+            "longitude": -38.415710
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "end": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "roadName": "Av. Santos Dumont"
+    }
+]
