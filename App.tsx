@@ -16,8 +16,8 @@ import {
   Nunito_500Medium
 } from '@expo-google-fonts/nunito';
 
-import { Routes } from './src/infra/user-interface/routes';
-import { Loading } from './src/infra/user-interface/components/Loading';
+import { Routes } from './src/application/routes';
+import { Loading } from './src/application/components/Loading';
 
 // Mantem a tela inicial visível enquanto o usuário confirma sua localização
 SplashScreen.preventAutoHideAsync();

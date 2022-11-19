@@ -3,7 +3,7 @@ import MapView from 'react-native-maps';
 
 import { styles } from './styles';
 
-export function SearchEcoPoint() {
+export function FindLocation() {
 
   const initialState = {
     latitude: -12.151468,

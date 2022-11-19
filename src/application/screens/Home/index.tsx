@@ -17,7 +17,7 @@ export function Home() {
   const navigation = useNavigation();
 
   function handleReserveEcobike() {
-    navigation.navigate('SearchEcoPoint');
+    navigation.navigate('FindLocation');
   }
 
   async function openSettings() {
