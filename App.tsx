@@ -1,4 +1,8 @@
+import * as SplashScreen from 'expo-splash-screen';
+import * as Location from 'expo-location';
+import { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
+
 import { 
   useFonts, 
   Lexend_700Bold,
@@ -8,20 +12,46 @@ import {
 
 import {
   Nunito_400Regular,
-  Nunito_800ExtraBold
+  Nunito_800ExtraBold,
+  Nunito_500Medium
 } from '@expo-google-fonts/nunito';
 
-import { Routes } from './src/routes';
-import { Loading } from './src/components/Loading';
+import { Routes } from './src/infra/user-interface/routes';
+import { Loading } from './src/infra/user-interface/components/Loading';
+
+// Mantem a tela inicial visível enquanto o usuário confirma sua localização
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState<boolean>(false);
+
   const [fontsLoaded] = useFonts({
     Lexend_700Bold,
     Lexend_600SemiBold,
     Lexend_400Regular,
     Nunito_800ExtraBold,
+    Nunito_500Medium,
     Nunito_400Regular,
   });
+
+  async function requestLocationPermissionFromDevice() {
+    try {
+      await Location.requestForegroundPermissionsAsync();
+    } catch (err) {
+      console.warn(err);
+    } finally {
+      setAppIsReady(true);
+      await SplashScreen.hideAsync();
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      await requestLocationPermissionFromDevice();
+    })();
+  }, []);
+
+  if (!appIsReady) return null;
 
   return (
     <>

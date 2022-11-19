@@ -23,7 +23,7 @@ export function Routes() {
                     }
                 }}
             >
-                <Screen 
+                <Screen
                     options={{
                         headerTitle: () => <Logotipo />,
                         headerStyle: {

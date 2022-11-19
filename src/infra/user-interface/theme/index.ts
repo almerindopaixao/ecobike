@@ -3,7 +3,7 @@ export const THEME = {
         WHITE: '#FFFFFF',
         BACKGROUND: '#E5E5E5',
         TEXT: '#6C6C80',
-
+        TITLE: '#322153',
         PRIMARY: '#34CB79'
     },
     FONT_FAMILY: {
@@ -14,6 +14,7 @@ export const THEME = {
         },
         NUNITO: {
             REGULAR: 'Nunito_400Regular',
+            MEDIUM: 'Nunito_500Medium',
             EXTRA_BOLD: 'Nunito_800ExtraBold',
         }
     },

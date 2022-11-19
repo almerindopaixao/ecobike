@@ -5,8 +5,8 @@ import { styles } from './styles';
 import { THEME } from '../../theme';
 
 interface CallToActionProps extends TouchableOpacityProps {
-    title: string;
-    subtitle: string;
+  title: string;
+  subtitle: string;
 }
 
 export function CallToAction({ title, subtitle, ...rest }: CallToActionProps) {
