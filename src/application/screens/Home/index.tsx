@@ -17,7 +17,7 @@ export function Home() {
   const navigation = useNavigation();
 
   function handleReserveEcobike() {
-    navigation.navigate('FindLocation');
+    navigation.navigate('SelectLocation');
   }
 
   async function openSettings() {
@@ -48,6 +48,7 @@ export function Home() {
   }
 
   useEffect(() => {
+    console.log('Renderizou Home');
     let subscription: NativeEventSubscription;
 
     const checkLocation = async () => {

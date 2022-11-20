@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Home, FindLocation } from '../screens';
+import { Home, SelectLocation } from '../screens';
 import { Logotipo } from '../components';
 import { THEME } from '../theme';
 
@@ -35,9 +35,9 @@ export function Routes() {
                 />
 
                 <Screen 
-                    name='FindLocation'
-                    component={FindLocation}
-                    options={{ title: 'Encontre um ecopoint' }}
+                    name='SelectLocation'
+                    component={SelectLocation}
+                    options={{ title: 'Selecione sua localização' }}
                 />
             </Navigator>
         </NavigationContainer>

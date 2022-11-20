@@ -1,2 +1,2 @@
 export { Home } from './Home';
-export { FindLocation } from './FindLocation';
+export { SelectLocation } from './SelectLocation';

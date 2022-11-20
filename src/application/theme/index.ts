@@ -4,7 +4,10 @@ export const THEME = {
         BACKGROUND: '#E5E5E5',
         TEXT: '#6C6C80',
         TITLE: '#322153',
-        PRIMARY: '#34CB79'
+        PRIMARY: '#34CB79',
+        SECONDARY: '#FFD152',
+        INPUT: '#F0F0F5',
+        ERROR: '#F44336'
     },
     FONT_FAMILY: {
         LEXEND: {
