@@ -1,7 +1,7 @@
 import { IClientHttp } from "../../http/client.http";
 import { LOCATION_IQ_URL, LOCATION_IQ_KEY } from '../../../config/constants';
 
-import { LocationDto } from '../../../domain/dtos/Location.dto';
+import { LocationDto } from '../../../dtos/Location.dto';
 
 export interface LocationIQApiResponse {
     place_id: string;

@@ -1,5 +1,5 @@
 import * as Location from 'expo-location';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { 
   View, 
   TextInput, 
@@ -10,12 +10,14 @@ import {
 } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
+import { UserContext } from '../../context/user.provider';
 import { LocationMarker, Loading } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
-import { LocationDto } from '../../../domain/dtos/Location.dto';
+import { LocationDto } from '../../../dtos/Location.dto';
 import { ClientHttp } from '../../../infra/http/client.http';
 import { LocationIQRepository } from '../../../infra/repositories/locationiq/locationiq.repository';
 import { GetAddressFromLatAndLngUseCase } from '../../../domain/usecases/get-address-from-lat-and-lng.usecase';
@@ -32,6 +34,9 @@ export function SelectLocation() {
   const getAddressFromLatAndLngUseCase = GetAddressFromLatAndLngUseCase.getInstance(locationIQRepository);
   const getLatAndLngFromAddressUseCase = GetLatAndLngFromAddressUseCase.getInstance(locationIQRepository);
 
+  const navigation = useNavigation();
+  const [user, setUser] = useContext(UserContext);
+
   const [region, setRegion] = useState<{
     latitude: number;
     longitude: number;
@@ -43,10 +48,13 @@ export function SelectLocation() {
     latitudeDelta: LAT_DELTA,
     longitudeDelta: LNG_DELTA,
   });
-  const [userLocation, setUserLocation] = useState<[number, number]>([0, 0]);
   const [input, setInput] = useState<string>();
   const [data, setData] = useState<LocationDto[]>([]);
   const [isFocusInput, setIsFocusInput] = useState<boolean>(false);
+
+  function handleGoSelectUsageTime() {
+    navigation.navigate('SelectUsageTime');
+  }
 
   function formateAddress(location: Pick<LocationDto, 'address'>) {
     const bairro = location.address.suburb ? `, ${location.address.suburb}` : '';
@@ -76,7 +84,13 @@ export function SelectLocation() {
     });
 
     // Set user location
-    setUserLocation([location.latitude, location.longitude]);
+    setUser({
+      ...user,
+      start_point: {
+        latitude: location.latitude,
+        longitude: location.longitude
+      }
+    });
 
     // Set input text
     setInput(formateAddress(location));
@@ -111,7 +125,14 @@ export function SelectLocation() {
 
       const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
       setInput(address);
-      setUserLocation([latitude, longitude]);
+
+      setUser({
+        ...user,
+        start_point: {
+          latitude,
+          longitude
+        }
+      });
     })();
 
     return () => {
@@ -126,18 +147,21 @@ export function SelectLocation() {
       {region.latitude === 0 ? <Loading bottom={100} /> : (
         <MapView
           style={styles.map}
-          onPress={(event) => setUserLocation([
-              event.nativeEvent.coordinate.latitude, 
-              event.nativeEvent.coordinate.longitude
-            ])
+          onPress={(event) => setUser({
+              ...user,
+              start_point: {
+                latitude: event.nativeEvent.coordinate.latitude,
+                longitude: event.nativeEvent.coordinate.longitude
+              }
+            })
           }
           region={region}
           initialRegion={region}
         >
           <Marker
             coordinate={{
-              latitude: userLocation[0],
-              longitude: userLocation[1],
+              latitude: user.start_point.latitude,
+              longitude: user.start_point.longitude,
             }}
           >
             <LocationMarker size={50} />
@@ -197,6 +221,7 @@ export function SelectLocation() {
 
         <TouchableOpacity
           style={styles.button}
+          onPress={handleGoSelectUsageTime}
         >
             <Text
               style={styles.textButton}

@@ -10,23 +10,20 @@ export const styles = StyleSheet.create({
 
     backgroundColor: THEME.COLORS.WHITE,
     padding: 20,
+    marginHorizontal: 30,
     borderRadius: 30,
-  },
-
-  content: {
-    width: 265,
   },
 
   title: {
     fontFamily: THEME.FONT_FAMILY.LEXEND.SEMI_BOLD,
     color: THEME.COLORS.PRIMARY,
-    fontSize: 20,
+    fontSize: 18,
   },
 
   subtitle: {
     fontFamily: THEME.FONT_FAMILY.LEXEND.REGULAR,
     color: THEME.COLORS.TEXT,
-    fontSize: 15,
+    fontSize: 14,
 
     marginTop: 8,
   }

@@ -1,5 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
-import { View, Text, Linking, Platform, AppState, AppStateStatus, NativeEventSubscription } from 'react-native';
+import { 
+  View, 
+  Text, 
+  Linking, 
+  Platform, 
+  AppState, 
+  AppStateStatus, 
+  NativeEventSubscription 
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';

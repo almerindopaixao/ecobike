@@ -12,7 +12,7 @@ interface CallToActionProps extends TouchableOpacityProps {
 export function CallToAction({ title, subtitle, ...rest }: CallToActionProps) {
   return (
     <TouchableOpacity style={styles.container} {...rest}>
-        <View style={styles.content}>
+        <View>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.subtitle}>{subtitle}</Text>
         </View>

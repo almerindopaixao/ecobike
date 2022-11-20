@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   title: {
     color: THEME.COLORS.WHITE,
     fontFamily: THEME.FONT_FAMILY.LEXEND.BOLD,
-    fontSize: 28,
+    fontSize: 24,
     marginTop: 15,
   },
 });

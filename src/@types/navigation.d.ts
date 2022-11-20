@@ -3,6 +3,8 @@ export declare global {
         interface RootParamList {
             Home: undefined;
             SelectLocation: undefined;
+            SearchEcoPoint: undefined;
+            SelectUsageTime: undefined;
         }
     }
 }

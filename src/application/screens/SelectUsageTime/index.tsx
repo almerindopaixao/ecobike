@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native';
 import { styles } from './styles';
 
-export function SearchEcoPoint() {
+export function SelectUsageTime() {
     return (
         <View style={styles.container}>
-            <Text>Encontrar um ecopoint</Text>
+            <Text>Selecione tempo de uso da ecobike</Text>
         </View>
     );
 }
