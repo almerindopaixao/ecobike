@@ -46,29 +46,11 @@ export const styles = StyleSheet.create({
     padding: 10
   },
 
-  button: {
-    marginTop: 50,
-    height: 58,
-    backgroundColor: THEME.COLORS.PRIMARY,
-    borderRadius: 15,
-    width: '100%',
-
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  textButton: {
-    fontSize: THEME.FONT_SIZE.MD,
-    fontFamily: THEME.FONT_FAMILY.LEXEND.BOLD,
-    color: THEME.COLORS.WHITE
-  },
-
   autocomplete: {
     flexDirection: 'row', 
     alignItems: 'center', 
     padding: 15,
-    position: 'relative',
-    zIndex: 3
+    position: 'relative'
   },
 
   autocompleteItem: {
@@ -80,5 +62,30 @@ export const styles = StyleSheet.create({
     fontSize: THEME.FONT_SIZE.SM,
     fontFamily: THEME.FONT_FAMILY.LEXEND.REGULAR,
     color: THEME.COLORS.TEXT
+  },
+
+  info: {
+    position: 'absolute', 
+    backgroundColor: '#000',
+    opacity: 0.8,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  infoTitle: {
+    marginHorizontal: 20,
+    textAlign: 'center',
+    lineHeight: 30,
+    marginTop: 20,
+    fontSize: 20,
+    fontFamily: THEME.FONT_FAMILY.LEXEND.SEMI_BOLD,
+    color: THEME.COLORS.WHITE
   }
 });

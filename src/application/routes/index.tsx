@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { 
     Home, 
     SelectLocation, 
-    SearchEcoPoint, 
+    SelectEcoPoint, 
     SelectUsageTime 
 } from '../screens';
 import { UserProvider } from '../context/user.provider';
@@ -44,19 +44,19 @@ export function Routes() {
                     <Screen 
                         name='SelectLocation'
                         component={SelectLocation}
-                        options={{ title: 'Selecione sua localização' }}
+                        options={{ title: 'Selecionar localização' }}
                     />
 
                     <Screen 
                         name='SelectUsageTime'
                         component={SelectUsageTime}
-                        options={{ title: 'Tempo de uso' }}
+                        options={{ title: 'Informar tempo de uso' }}
                     />
 
                     <Screen 
-                        name='SearchEcoPoint'
-                        component={SearchEcoPoint}
-                        options={{ title: 'Encontre um ecopoint' }}
+                        name='SelectEcoPoint'
+                        component={SelectEcoPoint}
+                        options={{ title: 'Selecionar ecopoint' }}
                     />
                 </Navigator>
             </NavigationContainer>

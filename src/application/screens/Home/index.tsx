@@ -24,7 +24,7 @@ export function Home() {
   const [isLocationModalVisible, setIsLocationModalVisible] = useState<boolean>(false);
   const navigation = useNavigation();
 
-  function handleReserveEcobike() {
+  function handleGoReserveEcobike() {
     navigation.navigate('SelectLocation');
   }
 
@@ -94,7 +94,7 @@ export function Home() {
         <CallToAction 
           title='Reservar uma ecobike?'
           subtitle='Encontre um ecopoint mais próximo de você'
-          onPress={handleReserveEcobike}
+          onPress={handleGoReserveEcobike}
         />
       </SafeAreaView>
     </>

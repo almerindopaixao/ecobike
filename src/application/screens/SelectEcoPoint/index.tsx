@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native';
 import { styles } from './styles';
 
-export function SearchEcoPoint() {
+export function SelectEcoPoint() {
     return (
         <View style={styles.container}>
             <Text>Encontrar um ecopoint</Text>

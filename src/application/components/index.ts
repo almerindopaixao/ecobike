@@ -4,3 +4,4 @@ export { Logotipo } from './Logotipo';
 export { EnableLocationModal } from './EnableLocationModal';
 export { LocationMarker } from './LocationMarker';
 export { EcoPointMarker } from './EcoPointMarker';
+export { AppButton } from './AppButton';

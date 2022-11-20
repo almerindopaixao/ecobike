@@ -6,6 +6,7 @@ export const THEME = {
         TITLE: '#322153',
         PRIMARY: '#34CB79',
         SECONDARY: '#FFD152',
+        GREY: '#E6E6F0',
         INPUT: '#F0F0F5',
         ERROR: '#F44336'
     },
@@ -18,6 +19,7 @@ export const THEME = {
         NUNITO: {
             REGULAR: 'Nunito_400Regular',
             MEDIUM: 'Nunito_500Medium',
+            SEMI_BOLD: 'Nunito_600SemiBold',
             EXTRA_BOLD: 'Nunito_800ExtraBold',
         }
     },

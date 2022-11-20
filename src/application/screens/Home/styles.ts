@@ -20,5 +20,6 @@ export const styles = StyleSheet.create({
     fontFamily: THEME.FONT_FAMILY.LEXEND.BOLD,
     fontSize: 24,
     marginTop: 15,
+    textAlign: 'center'
   },
 });

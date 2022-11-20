@@ -7,13 +7,14 @@ import {
   Text, 
   FlatList, 
   Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 import { UserContext } from '../../context/user.provider';
-import { LocationMarker, Loading } from '../../components';
+import { LocationMarker, Loading, AppButton } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
@@ -51,6 +52,7 @@ export function SelectLocation() {
   const [input, setInput] = useState<string>();
   const [data, setData] = useState<LocationDto[]>([]);
   const [isFocusInput, setIsFocusInput] = useState<boolean>(false);
+  const [showInfo, setShowInfo] = useState<boolean>(true);
 
   function handleGoSelectUsageTime() {
     navigation.navigate('SelectUsageTime');
@@ -123,8 +125,8 @@ export function SelectLocation() {
         longitude: longitude
       });
 
-      // const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
-      // setInput(address);
+      const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
+      setInput(address);
 
       setUser({
         ...user,
@@ -142,8 +144,23 @@ export function SelectLocation() {
   }, []);
 
   return (
+    <>
+    {showInfo && (
+      <TouchableWithoutFeedback
+        onPress={() => setShowInfo(false)}
+      >
+        <View style={styles.info}>
+          <MaterialIcons 
+            name='touch-app'
+            size={80}
+            color={THEME.COLORS.SECONDARY}
+          />
+          <Text style={styles.infoTitle}>Toque no mapa para editar sua localização</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      )
+    }
     <View style={styles.container}>
-      
       {region.latitude === 0 ? <Loading bottom={100} /> : (
         <MapView
           style={styles.map}
@@ -219,17 +236,15 @@ export function SelectLocation() {
           keyboardShouldPersistTaps='handled'
         />
 
-        <TouchableOpacity
-          style={styles.button}
+        <AppButton
+          disabled={user.start_point.latitude === 0}
+          type={user.start_point.latitude === 0 ? 'secondary' : 'primary'}
+          text='Próximo'
           onPress={handleGoSelectUsageTime}
-        >
-            <Text
-              style={styles.textButton}
-            >
-              Próximo
-            </Text>
-        </TouchableOpacity>
+          marginTop={50} 
+        />
       </View>
     </View>
+    </>
   );
 }
