@@ -9,15 +9,17 @@ import {
   Keyboard,
   TouchableWithoutFeedback
 } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { UserContext } from '../../context/user.provider';
 import { LocationMarker, Loading, AppButton } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
+import { LAT_DELTA, LNG_DELTA } from '../../../config/constants';
 import { LocationDto } from '../../../dtos/Location.dto';
 import { ClientHttp } from '../../../infra/http/client.http';
 import { LocationIQRepository } from '../../../infra/repositories/locationiq/locationiq.repository';
@@ -26,9 +28,6 @@ import { GetLatAndLngFromAddressUseCase } from '../../../domain/usecases/get-lat
 
 
 export function SelectLocation() {
-  const LAT_DELTA = 0.010;
-  const LNG_DELTA = 0.010;
-
   const clientHttp = ClientHttp.getInstance();
   const locationIQRepository = LocationIQRepository.getInstance(clientHttp);
 
@@ -99,8 +98,6 @@ export function SelectLocation() {
   }
 
   useEffect(() => {
-    console.log('Renderizou FindLocation');
-
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
@@ -125,8 +122,8 @@ export function SelectLocation() {
         longitude: longitude
       });
 
-      const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
-      setInput(address);
+      // const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
+      // setInput(address);
 
       setUser({
         ...user,
@@ -164,6 +161,7 @@ export function SelectLocation() {
       {region.latitude === 0 ? <Loading bottom={100} /> : (
         <MapView
           style={styles.map}
+          provider={PROVIDER_GOOGLE}
           onPress={(event) => setUser({
               ...user,
               start_point: {

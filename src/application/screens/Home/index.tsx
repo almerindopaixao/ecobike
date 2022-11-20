@@ -56,7 +56,6 @@ export function Home() {
   }
 
   useEffect(() => {
-    console.log('Renderizou Home');
     let subscription: NativeEventSubscription;
 
     const checkLocation = async () => {

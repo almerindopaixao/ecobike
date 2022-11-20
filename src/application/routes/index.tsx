@@ -5,7 +5,8 @@ import {
     Home, 
     SelectLocation, 
     SelectEcoPoint, 
-    SelectUsageTime 
+    SelectUsageTime,
+    DetailEcoPoint
 } from '../screens';
 import { UserProvider } from '../context/user.provider';
 import { Logotipo } from '../components';
@@ -57,6 +58,12 @@ export function Routes() {
                         name='SelectEcoPoint'
                         component={SelectEcoPoint}
                         options={{ title: 'Selecionar ecopoint' }}
+                    />
+
+                    <Screen 
+                        name='DetailEcoPoint'
+                        component={DetailEcoPoint}
+                        options={{ title: 'Detalhes do ecopoint' }}
                     />
                 </Navigator>
             </NavigationContainer>

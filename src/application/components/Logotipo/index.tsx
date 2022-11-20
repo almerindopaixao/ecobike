@@ -2,7 +2,7 @@
 import { View, Text, Image } from 'react-native';
 
 import { styles } from './styles';
-import logoImageApp from '../../assets/logo.png';
+import logoImageApp from '../../assets/images/logo.png';
 import { THEME } from '../../theme';
 
 export function Logotipo() {
