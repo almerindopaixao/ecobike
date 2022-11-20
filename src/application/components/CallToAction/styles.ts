@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: THEME.COLORS.WHITE,
     padding: 20,
-    marginHorizontal: 30,
+    marginHorizontal: 40,
     borderRadius: 30,
   },
 

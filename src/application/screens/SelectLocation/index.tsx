@@ -123,8 +123,8 @@ export function SelectLocation() {
         longitude: longitude
       });
 
-      const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
-      setInput(address);
+      // const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
+      // setInput(address);
 
       setUser({
         ...user,

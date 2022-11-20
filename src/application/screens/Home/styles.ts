@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginHorizontal: 20
   },
 
   title: {
