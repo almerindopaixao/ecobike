@@ -22,9 +22,7 @@ import { THEME } from '../../theme';
 import { LocationDto } from '../../../dtos/location.dto';
 import { ClientHttp } from '../../../infra/http/client.http';
 import { LocationIQRepository } from '../../../infra/repositories/locationiq/locationiq.repository';
-import { GetAddressFromLatAndLngUseCase } from '../../../domain/usecases/get-address-from-lat-and-lng.usecase';
-import { GetLatAndLngFromAddressUseCase } from '../../../domain/usecases/get-lat-and-lng-from-address.usecase';
-
+import { GeocodingController } from '../../../controllers/geocoding.controller';
 const { 
   LAT_DELTA = '', 
   LNG_DELTA = '' 
@@ -33,9 +31,7 @@ const {
 export function SelectLocation() {
   const clientHttp = ClientHttp.getInstance();
   const locationIQRepository = LocationIQRepository.getInstance(clientHttp);
-
-  const getAddressFromLatAndLngUseCase = GetAddressFromLatAndLngUseCase.getInstance(locationIQRepository);
-  const getLatAndLngFromAddressUseCase = GetLatAndLngFromAddressUseCase.getInstance(locationIQRepository);
+  const geocodingController = GeocodingController.getInstance(locationIQRepository);
 
   const navigation = useNavigation();
   const [user, setUser] = useContext(UserContext);
@@ -73,7 +69,7 @@ export function SelectLocation() {
     setInput(text);
 
     if (text.length < 3) return;
-    const res = await getLatAndLngFromAddressUseCase.execute(text);
+    const res = await geocodingController.getLatAndLngFrom(text);
     if (res.length > 0) setData(res);
   }
 
@@ -127,7 +123,7 @@ export function SelectLocation() {
         longitude: longitude
       });
 
-      // const address = await getAddressFromLatAndLngUseCase.execute(latitude, longitude);
+      // const address = await geocodingController.getAddressFrom(latitude, longitude);
       // setInput(address);
 
       setUser({

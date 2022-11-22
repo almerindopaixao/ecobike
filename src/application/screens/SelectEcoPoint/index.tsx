@@ -13,7 +13,7 @@ import {
     EcoPointRepository, 
     ListEcoPoints 
 } from '../../../infra/repositories/supabase/ecopoint.repository';
-import { ListEcoPointsInRegionUseCase } from '../../../domain/usecases/list-ecopoints-in-region.usecase';
+import { EcoPointController } from '../../../controllers/ecopoint.controller';
 
 const { 
     LAT_DELTA = '', 
@@ -22,7 +22,7 @@ const {
 
 export function SelectEcoPoint() {
     const ecoPointRepository = EcoPointRepository.getInstance(supabase);
-    const listEcoPointInRegionUseCase = ListEcoPointsInRegionUseCase.getInstance(ecoPointRepository);
+    const ecoPointController = EcoPointController.getInstance(ecoPointRepository);
 
     const [user, setUser] = useContext(UserContext);
     const [ecopoints, setEcopoints] = useState<ListEcoPoints>([]);
@@ -37,7 +37,7 @@ export function SelectEcoPoint() {
         (async () => {
             try {
               setLoading(true);
-              const result = await listEcoPointInRegionUseCase.execute();
+              const result = await ecoPointController.listAllEcoPoints();
               setEcopoints(result);
             } catch (err) {
               console.error(err);
@@ -83,7 +83,10 @@ export function SelectEcoPoint() {
                             longitude: ecopoint.longitude
                         }}
                     >
-                        <EcoPointMarker name={ecopoint.nome} />
+                        <EcoPointMarker 
+                            name={ecopoint.nome}
+                            image_url={ecopoint.imagem}
+                        />
                     </Marker>
                 ))}
             </MapView>)}
