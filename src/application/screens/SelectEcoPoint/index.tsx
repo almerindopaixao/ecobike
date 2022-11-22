@@ -1,21 +1,55 @@
-import { useContext } from 'react';
+import Constants from 'expo-constants';
+import { useContext, useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import { useNavigation } from '@react-navigation/native';
 
 import { UserContext } from '../../context/user.provider';
-import { EcoPointMarker, LocationMarker } from '../../components';
+import { EcoPointMarker, LocationMarker, Loading } from '../../components';
 import { styles } from './styles';
 
-import { LAT_DELTA, LNG_DELTA } from '../../../config/constants';
+import { supabase } from '../../../infra/database/supabase/supabase.database';
+import { 
+    EcoPointRepository, 
+    ListEcoPoints 
+} from '../../../infra/repositories/supabase/ecopoint.repository';
+import { ListEcoPointsInRegionUseCase } from '../../../domain/usecases/list-ecopoints-in-region.usecase';
 
+const { 
+    LAT_DELTA = '', 
+    LNG_DELTA = '' 
+  } = Constants.expoConfig?.extra || {}
 
 export function SelectEcoPoint() {
-    const [user, setUser] = useContext(UserContext);
+    const ecoPointRepository = EcoPointRepository.getInstance(supabase);
+    const listEcoPointInRegionUseCase = ListEcoPointsInRegionUseCase.getInstance(ecoPointRepository);
 
+    const [user, setUser] = useContext(UserContext);
+    const [ecopoints, setEcopoints] = useState<ListEcoPoints>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const navigation = useNavigation();
+
+    function handleGoDetailEcoPoint(ecopointId: string) {
+        navigation.navigate('DetailEcoPoint', { ecopointId });
+    }
+
+    useEffect(() => {
+        (async () => {
+            try {
+              setLoading(true);
+              const result = await listEcoPointInRegionUseCase.execute();
+              setEcopoints(result);
+            } catch (err) {
+              console.error(err);
+            } finally {
+              setLoading(false);
+            }
+        })();
+    }, []);
 
     return (
         <View style={styles.container}>
-            <MapView
+            {loading ? <Loading bottom={0} /> : (<MapView
                 style={styles.map}
                 provider={PROVIDER_GOOGLE}
                 initialRegion={{
@@ -32,31 +66,27 @@ export function SelectEcoPoint() {
                     }}
                 >
                     <View style={styles.mapMarkerContainer}>
-                        <LocationMarker size={30} />
+                        <LocationMarker 
+                            size={30}
+                        />
                         <Text style={styles.mapMarkerTitle}>Você está aqui</Text>
                     </View>
                 </Marker>
-                
-                <Marker
-                    style={styles.mapMarker}
-                    coordinate={{
-                        latitude: -12.148675842104419, 
-                        longitude: -38.414977196482816
-                    }}
-                >
-                    <EcoPointMarker name='Só Bike' />
-                </Marker>
 
-                <Marker
-                    style={styles.mapMarker}
-                    coordinate={{
-                        latitude: -12.149850558393751, 
-                        longitude: -38.41227352992463
-                    }}
-                >
-                    <EcoPointMarker name='rapidão' />
-                </Marker>
-            </MapView>
+                {ecopoints.map((ecopoint) => (
+                    <Marker
+                        key={ecopoint.id}
+                        onPress={() => handleGoDetailEcoPoint(ecopoint.id)}
+                        style={styles.mapMarker}
+                        coordinate={{
+                            latitude: ecopoint.latitude, 
+                            longitude: ecopoint.longitude
+                        }}
+                    >
+                        <EcoPointMarker name={ecopoint.nome} />
+                    </Marker>
+                ))}
+            </MapView>)}
         </View>
     );
 }

@@ -15,7 +15,7 @@ export class GetLatAndLngFromAddressUseCase {
             const response = await this.locationIQRepository.autocompleteForwardGeocoding(address)
             return response;
         } catch(err) {
-            console.warn(err);
+            console.error(err);
             return [];
         }
     }

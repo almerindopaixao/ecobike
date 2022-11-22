@@ -63,7 +63,7 @@ export function Routes() {
                     <Screen 
                         name='DetailEcoPoint'
                         component={DetailEcoPoint}
-                        options={{ title: 'Detalhes do ecopoint' }}
+                        options={{ title: 'Ecopoint' }}
                     />
                 </Navigator>
             </NavigationContainer>

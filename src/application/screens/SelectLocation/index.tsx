@@ -1,4 +1,5 @@
 import * as Location from 'expo-location';
+import Constants from 'expo-constants';
 import { useEffect, useState, useContext } from 'react';
 import { 
   View, 
@@ -12,20 +13,22 @@ import {
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { UserContext } from '../../context/user.provider';
 import { LocationMarker, Loading, AppButton } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
-import { LAT_DELTA, LNG_DELTA } from '../../../config/constants';
-import { LocationDto } from '../../../dtos/Location.dto';
+import { LocationDto } from '../../../dtos/location.dto';
 import { ClientHttp } from '../../../infra/http/client.http';
 import { LocationIQRepository } from '../../../infra/repositories/locationiq/locationiq.repository';
 import { GetAddressFromLatAndLngUseCase } from '../../../domain/usecases/get-address-from-lat-and-lng.usecase';
 import { GetLatAndLngFromAddressUseCase } from '../../../domain/usecases/get-lat-and-lng-from-address.usecase';
 
+const { 
+  LAT_DELTA = '', 
+  LNG_DELTA = '' 
+} = Constants.expoConfig?.extra || {}
 
 export function SelectLocation() {
   const clientHttp = ClientHttp.getInstance();
@@ -115,6 +118,8 @@ export function SelectLocation() {
     (async () => {
       const location = await Location.getCurrentPositionAsync();
       const { latitude, longitude } = location.coords;
+
+      console.log(`Localização: ${latitude}, ${longitude}`)
 
       setRegion({
         ...region,

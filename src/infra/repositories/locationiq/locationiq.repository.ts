@@ -1,7 +1,7 @@
-import { IClientHttp } from "../../http/client.http";
-import { LOCATION_IQ_URL, LOCATION_IQ_KEY } from '../../../config/constants';
+import Constants from 'expo-constants';
 
-import { LocationDto } from '../../../dtos/Location.dto';
+import { IClientHttp } from "../../http/client.http";
+import { LocationDto } from '../../../dtos/location.dto';
 
 export interface LocationIQApiResponse {
     place_id: string;
@@ -31,10 +31,15 @@ export interface ILocationIQRepository {
 
 export class LocationIQRepository implements ILocationIQRepository {
     private static INSTANCE: LocationIQRepository;
+    private LOCATION_IQ_URL: string = Constants.expoConfig?.extra?.LOCATION_IQ_URL;
+    private LOCATION_IQ_KEY: string = Constants.expoConfig?.extra?.LOCATION_IQ_KEY;
 
-    private locationiqReverseGeocodingUrl: string = `${LOCATION_IQ_URL}/reverse?format=json&key=${LOCATION_IQ_KEY}`;
-    private locationiqForwardGeocodingUrl: string = `${LOCATION_IQ_URL}/search?format=json&key=${LOCATION_IQ_KEY}`;
-    private locationiqAutocompleteForwardGeocodingUrl: string = `${LOCATION_IQ_URL}/autocomplete?format=json&key=${LOCATION_IQ_KEY}`;
+    private locationiqReverseGeocodingUrl: string = 
+        `${this.LOCATION_IQ_URL}/reverse?format=json&key=${this.LOCATION_IQ_KEY}`;
+    private locationiqForwardGeocodingUrl: string = 
+        `${this.LOCATION_IQ_URL}/search?format=json&key=${this.LOCATION_IQ_KEY}`;
+    private locationiqAutocompleteForwardGeocodingUrl: string = 
+        `${this.LOCATION_IQ_URL}/autocomplete?format=json&key=${this.LOCATION_IQ_KEY}`;
 
     constructor(private clientHttp: IClientHttp) {}
 
