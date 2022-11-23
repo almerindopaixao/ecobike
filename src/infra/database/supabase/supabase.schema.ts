@@ -47,7 +47,8 @@ export interface Database {
           cidade: string
           estado: string
           numero: string | null
-          imagem_url: string
+          imagem_url_md: string
+          imagem_url_sm: string
           funcionamento_inicio: number
           functionamento_fim: number
           latitude: number

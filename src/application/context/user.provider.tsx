@@ -1,7 +1,7 @@
 import { useState, createContext } from 'react';
 
 export interface IUserContext {
-    time_usage?: number;
+    time_usage: number;
     start_point: {
         latitude: number;
         longitude: number;
@@ -23,6 +23,7 @@ export const UserContext = createContext<[IUserContext, React.Dispatch<React.Set
 
 export function UserProvider({ children }: UserProviderProps) {
     const userContext: IUserContext = {
+        time_usage: 0,
         start_point: {
             latitude: 0,
             longitude: 0

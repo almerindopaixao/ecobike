@@ -2,11 +2,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { 
+    Login,
     Home, 
     SelectLocation, 
     SelectEcoPoint, 
     SelectUsageTime,
-    DetailEcoPoint
+    DetailEcoPoint,
+    RouteToEcoPoint
 } from '../screens';
 import { UserProvider } from '../context/user.provider';
 import { Logotipo } from '../components';
@@ -38,10 +40,19 @@ export function Routes() {
                                 backgroundColor: THEME.COLORS.BACKGROUND,
                             }
                         }}
+                        name='Login'
+                        component={Login} 
+                    />
+                    <Screen
+                        options={{
+                            headerTitle: () => <Logotipo />,
+                            headerStyle: {
+                                backgroundColor: THEME.COLORS.BACKGROUND,
+                            }
+                        }}
                         name='Home'
                         component={Home} 
                     />
-
                     <Screen 
                         name='SelectLocation'
                         component={SelectLocation}
@@ -63,6 +74,12 @@ export function Routes() {
                     <Screen 
                         name='DetailEcoPoint'
                         component={DetailEcoPoint}
+                        options={{ title: 'Ecopoint' }}
+                    />
+
+                    <Screen 
+                        name='RouteToEcoPoint'
+                        component={RouteToEcoPoint}
                         options={{ title: 'Ecopoint' }}
                     />
                 </Navigator>

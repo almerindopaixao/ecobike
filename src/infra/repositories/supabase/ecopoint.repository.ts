@@ -1,11 +1,8 @@
 import { EcoPointDto } from '../../../dtos/ecopoint.dto';
-import { ISupabaseClient, supabase } from "../../database/supabase/supabase.database";
-
-export type ListEcoPoints = 
-    Pick<EcoPointDto, 'id'|'nome'|'imagem'|'latitude'|'longitude'>[];
+import { ISupabaseClient } from "../../database/supabase/supabase.database";
 
 export interface IEcoPointRepository {
-    listEcoPoints: () => Promise<ListEcoPoints>
+    listEcoPoints: () => Promise<EcoPointDto[]>
 }
 
 export class EcoPointRepository implements IEcoPointRepository {
@@ -20,10 +17,24 @@ export class EcoPointRepository implements IEcoPointRepository {
         return this.INSTANCE;
     }
 
-    public async listEcoPoints(): Promise<ListEcoPoints> {
-        const { data, error, count, status } = await this.supabase
+    public async listEcoPoints(): Promise<EcoPointDto[]> {
+        const { data, error } = await this.supabase
             .from('ecopoints')
-            .select('id, nome, imagem:imagem_url, latitude, longitude');
+            .select(`
+                id,
+                nome,
+                logradouro,
+                bairro,
+                cidade,
+                estado,
+                numero,
+                imagemMd:imagem_url_md,
+                imagemSm:imagem_url_sm,
+                funcionamentoInicio:funcionamento_inicio,
+                functionamentoFim:functionamento_fim,
+                latitude,
+                longitude
+            `);
 
         if (error) {
             console.warn(error);

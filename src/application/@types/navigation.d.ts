@@ -1,7 +1,8 @@
-export interface DetailEcoPointParams {
-    ecopointId: string;
-}
+import { EcoPointDto } from "../../dtos/ecopoint.dto";
 
+export interface DetailEcoPointParams {
+    ecopoint: EcoPointDto
+}
 export declare global {
     namespace ReactNavigation {
         interface RootParamList {
@@ -9,7 +10,8 @@ export declare global {
             SelectLocation: undefined;
             SelectEcoPoint: undefined;
             SelectUsageTime: undefined;
-            DetailEcoPoint: DetailEcoPointParams
+            DetailEcoPoint: DetailEcoPointParams;
+            RouteToEcoPoint: undefined;
         }
     }
 }

@@ -8,11 +8,9 @@ import { UserContext } from '../../context/user.provider';
 import { EcoPointMarker, LocationMarker, Loading } from '../../components';
 import { styles } from './styles';
 
+import { EcoPointDto } from '../../../dtos/ecopoint.dto';
 import { supabase } from '../../../infra/database/supabase/supabase.database';
-import { 
-    EcoPointRepository, 
-    ListEcoPoints 
-} from '../../../infra/repositories/supabase/ecopoint.repository';
+import { EcoPointRepository } from '../../../infra/repositories/supabase/ecopoint.repository';
 import { EcoPointController } from '../../../controllers/ecopoint.controller';
 
 const { 
@@ -24,20 +22,20 @@ export function SelectEcoPoint() {
     const ecoPointRepository = EcoPointRepository.getInstance(supabase);
     const ecoPointController = EcoPointController.getInstance(ecoPointRepository);
 
-    const [user, setUser] = useContext(UserContext);
-    const [ecopoints, setEcopoints] = useState<ListEcoPoints>([]);
+    const [user] = useContext(UserContext);
+    const [ecopoints, setEcopoints] = useState<EcoPointDto[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const navigation = useNavigation();
 
-    function handleGoDetailEcoPoint(ecopointId: string) {
-        navigation.navigate('DetailEcoPoint', { ecopointId });
+    function handleGoDetailEcoPoint(ecopoint: EcoPointDto) {
+        navigation.navigate('DetailEcoPoint', { ecopoint });
     }
 
     useEffect(() => {
         (async () => {
             try {
               setLoading(true);
-              const result = await ecoPointController.listAllEcoPoints();
+              const result = await ecoPointController.listAllEcoPointsInRegion();
               setEcopoints(result);
             } catch (err) {
               console.error(err);
@@ -76,7 +74,7 @@ export function SelectEcoPoint() {
                 {ecopoints.map((ecopoint) => (
                     <Marker
                         key={ecopoint.id}
-                        onPress={() => handleGoDetailEcoPoint(ecopoint.id)}
+                        onPress={() => handleGoDetailEcoPoint(ecopoint)}
                         style={styles.mapMarker}
                         coordinate={{
                             latitude: ecopoint.latitude, 
@@ -85,7 +83,7 @@ export function SelectEcoPoint() {
                     >
                         <EcoPointMarker 
                             name={ecopoint.nome}
-                            image_url={ecopoint.imagem}
+                            image_url={ecopoint.imagemSm}
                         />
                     </Marker>
                 ))}

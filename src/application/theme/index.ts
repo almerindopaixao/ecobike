@@ -20,6 +20,7 @@ export const THEME = {
             REGULAR: 'Nunito_400Regular',
             MEDIUM: 'Nunito_500Medium',
             SEMI_BOLD: 'Nunito_600SemiBold',
+            BOLD: 'Nunito_700Bold',
             EXTRA_BOLD: 'Nunito_800ExtraBold',
         }
     },

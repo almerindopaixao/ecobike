@@ -14,6 +14,7 @@ import {
   Nunito_400Regular,
   Nunito_800ExtraBold,
   Nunito_600SemiBold,
+  Nunito_700Bold,
   Nunito_500Medium
 } from '@expo-google-fonts/nunito';
 
@@ -31,9 +32,10 @@ export default function App() {
     Lexend_600SemiBold,
     Lexend_400Regular,
     Nunito_800ExtraBold,
+    Nunito_700Bold,
+    Nunito_600SemiBold,
     Nunito_500Medium,
     Nunito_400Regular,
-    Nunito_600SemiBold
   });
 
   async function requestLocationPermissionFromDevice() {
