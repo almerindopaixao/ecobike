@@ -14,7 +14,7 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import { UserContext } from '../../context/user.provider';
+import { AppContext } from '../../context/app.provider';
 import { LocationMarker, Loading, AppButton } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
@@ -34,7 +34,7 @@ export function SelectLocation() {
   const geocodingController = GeocodingController.getInstance(locationIQRepository);
 
   const navigation = useNavigation();
-  const [user, setUser] = useContext(UserContext);
+  const [app, setApp] = useContext(AppContext);
 
   const [region, setRegion] = useState<{
     latitude: number;
@@ -84,8 +84,8 @@ export function SelectLocation() {
     });
 
     // Set user location
-    setUser({
-      ...user,
+    setApp({
+      ...app,
       start_point: {
         latitude: location.latitude,
         longitude: location.longitude
@@ -115,19 +115,17 @@ export function SelectLocation() {
       const location = await Location.getCurrentPositionAsync();
       const { latitude, longitude } = location.coords;
 
-      console.log(`Localização: ${latitude}, ${longitude}`)
-
       setRegion({
         ...region,
         latitude: latitude,
         longitude: longitude
       });
 
-      // const address = await geocodingController.getAddressFrom(latitude, longitude);
-      // setInput(address);
+      const address = await geocodingController.getAddressFrom(latitude, longitude);
+      setInput(address);
 
-      setUser({
-        ...user,
+      setApp({
+        ...app,
         start_point: {
           latitude,
           longitude
@@ -163,8 +161,8 @@ export function SelectLocation() {
         <MapView
           style={styles.map}
           provider={PROVIDER_GOOGLE}
-          onPress={(event) => setUser({
-              ...user,
+          onPress={(event) => setApp({
+              ...app,
               start_point: {
                 latitude: event.nativeEvent.coordinate.latitude,
                 longitude: event.nativeEvent.coordinate.longitude
@@ -176,8 +174,8 @@ export function SelectLocation() {
         >
           <Marker
             coordinate={{
-              latitude: user.start_point.latitude,
-              longitude: user.start_point.longitude,
+              latitude: app.start_point.latitude,
+              longitude: app.start_point.longitude,
             }}
           >
             <LocationMarker size={50} />
@@ -236,8 +234,8 @@ export function SelectLocation() {
         />
 
         <AppButton
-          disabled={user.start_point.latitude === 0}
-          type={user.start_point.latitude === 0 ? 'secondary' : 'primary'}
+          disabled={app.start_point.latitude === 0}
+          type={app.start_point.latitude === 0 ? 'secondary' : 'primary'}
           text='Próximo'
           onPress={handleGoSelectUsageTime}
           marginTop={50} 

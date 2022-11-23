@@ -7,3 +7,8 @@ export function calculateFaturamento(time: number): string {
     const round_hour = Math.ceil(time / hour_minutes);
     return (round_hour * hour_value).toFixed(2);
 }
+
+export function emailIsValid(email: string): boolean {
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    return regex.test(email);
+}

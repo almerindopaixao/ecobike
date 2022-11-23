@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 
-export interface IUserContext {
+export interface IAppContext {
     time_usage: number;
     start_point: {
         latitude: number;
@@ -12,17 +12,17 @@ export interface IUserContext {
     };
 }
 
-interface UserProviderProps {
+interface AppProviderProps {
     children: JSX.Element;
 }
 
-export const UserContext = createContext<[IUserContext, React.Dispatch<React.SetStateAction<IUserContext>>]>([
-    {} as IUserContext,
+export const AppContext = createContext<[IAppContext, React.Dispatch<React.SetStateAction<IAppContext>>]>([
+    {} as IAppContext,
     () => {}
 ]);
 
-export function UserProvider({ children }: UserProviderProps) {
-    const userContext: IUserContext = {
+export function AppProvider({ children }: AppProviderProps) {
+    const appContext: IAppContext = {
         time_usage: 0,
         start_point: {
             latitude: 0,
@@ -34,11 +34,11 @@ export function UserProvider({ children }: UserProviderProps) {
         }
     }
 
-    const [user, setUser] = useState<IUserContext>(userContext)
+    const [app, setApp] = useState<IAppContext>(appContext)
 
     return (
-        <UserContext.Provider value={[user, setUser]}>
+        <AppContext.Provider value={[app, setApp]}>
             {children}
-        </UserContext.Provider>
+        </AppContext.Provider>
     )
 }

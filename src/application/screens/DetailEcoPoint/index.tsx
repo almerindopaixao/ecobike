@@ -7,12 +7,12 @@ import { AppButton } from '../../components';
 
 import { DetailEcoPointParams } from '../../@types/navigation';
 import { EcoPointDto } from '../../../dtos/ecopoint.dto';
-import { UserContext } from '../../context/user.provider';
+import { AppContext } from '../../context/app.provider';
 
 import { calculateFaturamento } from '../../utils';
 
 export function DetailEcoPoint() {
-    const [user] = useContext(UserContext);
+    const [app] = useContext(AppContext);
     const route = useRoute();
     const navigation = useNavigation();
 
@@ -54,7 +54,7 @@ export function DetailEcoPoint() {
             <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Valor Estimado</Text>
                 <Text style={styles.valueText}>
-                    R$ {calculateFaturamento(user.time_usage)}
+                    R$ {calculateFaturamento(app.time_usage)}
                 </Text>
             </View>
             <View style={styles.buttonsContainer}>

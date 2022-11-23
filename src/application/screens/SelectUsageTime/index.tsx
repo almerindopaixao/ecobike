@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MaskInput from 'react-native-mask-input';
 
-import { UserContext } from '../../context/user.provider';
+import { AppContext } from '../../context/app.provider';
 import { AppButton } from '../../components';
 import { styles } from './styles';
 
@@ -28,7 +28,7 @@ export function SelectUsageTime() {
         /[0-9]/,
     ]
 
-    const [user, setUser] = useContext(UserContext);
+    const [app, setApp] = useContext(AppContext);
     const navigation = useNavigation();
 
     function resetErrors() {
@@ -62,8 +62,8 @@ export function SelectUsageTime() {
 
         resetErrors();
 
-        setUser({
-            ...user,
+        setApp({
+            ...app,
             time_usage: timeInMinutes
         });
 

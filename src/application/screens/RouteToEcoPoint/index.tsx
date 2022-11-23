@@ -2,7 +2,7 @@ import Constants from 'expo-constants';
 import { useContext } from 'react';
 import { View, Text } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from 'react-native-maps';
-import { UserContext } from '../../context/user.provider';
+import { AppContext } from '../../context/app.provider';
 
 import { styles } from './styles';
 
@@ -12,11 +12,11 @@ const {
   } = Constants.expoConfig?.extra || {}
 
 export function RouteToEcoPoint() {
-    const [user] = useContext(UserContext);
+    const [app] = useContext(AppContext);
 
     const region: Region = {
-        latitude: user.start_point.latitude,
-        longitude: user.start_point.longitude,
+        latitude: app.start_point.latitude,
+        longitude: app.start_point.longitude,
         latitudeDelta: LAT_DELTA,
         longitudeDelta: LNG_DELTA
     };

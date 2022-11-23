@@ -3,7 +3,7 @@ import { THEME } from '../../theme';
 
 export const styles = StyleSheet.create({
     button: {
-        height: 58,
+        height: 50,
         backgroundColor: THEME.COLORS.PRIMARY,
         borderRadius: 8,
         width: '100%',

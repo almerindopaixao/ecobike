@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
 
   button: {
     marginTop: 30,
-    height: 58,
+    height: 50,
     backgroundColor: THEME.COLORS.PRIMARY,
     borderRadius: 15,
 

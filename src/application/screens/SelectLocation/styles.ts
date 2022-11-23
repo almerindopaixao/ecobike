@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
 
     backgroundColor: THEME.COLORS.INPUT,
     borderRadius: 8,
-    height: 58,
+    height: 50,
     width: '100%',
   },
 

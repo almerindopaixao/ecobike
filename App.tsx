@@ -1,3 +1,4 @@
+import 'react-native-url-polyfill/auto'
 import * as SplashScreen from 'expo-splash-screen';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
@@ -19,6 +20,7 @@ import {
 } from '@expo-google-fonts/nunito';
 
 import { Routes } from './src/application/routes';
+import { AuthProvider } from './src/application/context/auth.provider';
 import { Loading } from './src/application/components/Loading';
 
 // Mantem a tela inicial visível enquanto o usuário confirma sua localização
@@ -58,13 +60,15 @@ export default function App() {
   if (!appIsReady) return null;
 
   return (
-    <>
-      <StatusBar  
-        barStyle="dark-content" 
-        backgroundColor="transparent" 
-        translucent
-      />
-      {fontsLoaded ? <Routes /> : <Loading/>}
-    </>
+    <AuthProvider>
+      <>
+        <StatusBar  
+          barStyle="dark-content" 
+          backgroundColor="transparent" 
+          translucent
+        />
+        {fontsLoaded ? <Routes /> : <Loading/>}
+      </>
+    </AuthProvider>
   );
 }

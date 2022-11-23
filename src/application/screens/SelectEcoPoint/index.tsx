@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useNavigation } from '@react-navigation/native';
 
-import { UserContext } from '../../context/user.provider';
+import { AppContext } from '../../context/app.provider';
 import { EcoPointMarker, LocationMarker, Loading } from '../../components';
 import { styles } from './styles';
 
@@ -22,7 +22,7 @@ export function SelectEcoPoint() {
     const ecoPointRepository = EcoPointRepository.getInstance(supabase);
     const ecoPointController = EcoPointController.getInstance(ecoPointRepository);
 
-    const [user] = useContext(UserContext);
+    const [app] = useContext(AppContext);
     const [ecopoints, setEcopoints] = useState<EcoPointDto[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const navigation = useNavigation();
@@ -51,16 +51,16 @@ export function SelectEcoPoint() {
                 style={styles.map}
                 provider={PROVIDER_GOOGLE}
                 initialRegion={{
-                    latitude: user.start_point.latitude,
-                    longitude: user.start_point.longitude,
+                    latitude: app.start_point.latitude,
+                    longitude: app.start_point.longitude,
                     latitudeDelta: LAT_DELTA + 0.005,
                     longitudeDelta: LNG_DELTA + 0.005
                 }}
             >
                 <Marker
                     coordinate={{
-                        latitude: user.start_point.latitude,
-                        longitude: user.start_point.longitude,
+                        latitude: app.start_point.latitude,
+                        longitude: app.start_point.longitude,
                     }}
                 >
                     <View style={styles.mapMarkerContainer}>
