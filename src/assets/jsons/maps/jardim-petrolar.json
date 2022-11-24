@@ -38,41 +38,74 @@
             "longitude": -38.412537
         },
         "end": {
-            "latitude": -12.151805,
-            "longitude": -38.413195
+            "latitude": -12.154428,
+            "longitude": -38.411913
         },
         "roadName": "Av. São Francisco de Assis"
     },
     {
         "start": {
-            "latitude": -12.151805,
-            "longitude": -38.413195
+            "latitude": -12.153149,
+            "longitude": -38.412537
         },
         "end": {
-            "latitude": -12.150441,
-            "longitude": -38.413871
+            "latitude": -12.151807,
+            "longitude": -38.413192
         },
         "roadName": "Av. São Francisco de Assis"
     },
     {
         "start": {
-            "latitude": -12.150441,
-            "longitude": -38.413871
+            "latitude": -12.151807,
+            "longitude": -38.413192
         },
         "end": {
-            "latitude": -12.149260,
-            "longitude": -38.414470
+            "latitude": -12.153149,
+            "longitude": -38.412537
         },
         "roadName": "Av. São Francisco de Assis"
     },
     {
         "start": {
-            "latitude": -12.149260,
-            "longitude": -38.414470
+            "latitude": -12.151807,
+            "longitude": -38.413192
         },
         "end": {
-            "latitude": -12.148358,
-            "longitude": -38.415004
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "end": {
+            "latitude": -12.151807,
+            "longitude": -38.413192
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "end": {
+            "latitude": -12.148359,
+            "longitude": -38.415012
+        },
+        "roadName": "Av. São Francisco de Assis"
+    },
+    {
+        "start": {
+            "latitude": -12.148359,
+            "longitude": -38.415012
+        },
+        "end": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
         },
         "roadName": "Av. São Francisco de Assis"
     },
@@ -93,65 +126,329 @@
             "longitude": -38.412501
         },
         "end": {
+            "latitude": -12.155725,
+            "longitude": -38.412029
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "end": {
             "latitude": -12.153322,
-            "longitude": -38.413171
+            "longitude": -38.413173
         },
         "roadName": "Rua Holandesa"
     },
     {
         "start": {
             "latitude": -12.153322,
-            "longitude": -38.413171
+            "longitude": -38.413173
         },
         "end": {
-            "latitude": -12.153149,
-            "longitude": -38.412537
+            "latitude": -12.154686,
+            "longitude": -38.412501
         },
-        "roadName": "Tv. Dom Diego"
+        "roadName": "Rua Holandesa"
     },
     {
         "start": {
             "latitude": -12.153322,
-            "longitude": -38.413171
+            "longitude": -38.413173
         },
         "end": {
-            "latitude": -12.153149,
-            "longitude": -38.412537
-        },
-        "roadName": "Tv. Dom Diego"
-    },
-    {
-        "start": {
-            "latitude": -12.152082,
-            "longitude": -38.413774
-        },
-        "end": {
-            "latitude": -12.151805,
-            "longitude": -38.413195
-        },
-        "roadName": "Av Democratas"
-    },
-    {
-        "start": {
-            "latitude": -12.152082,
-            "longitude": -38.413774
-        },
-        "end": {
-            "latitude": -12.149518,
-            "longitude": -38.415090
+            "latitude": -12.152083,
+            "longitude": -38.413778
         },
         "roadName": "Rua Holandesa"
     },
     {
         "start": {
-            "latitude": -12.149518,
-            "longitude": -38.415090
+            "latitude": -12.152083,
+            "longitude": -38.413778
         },
         "end": {
-            "latitude": -12.148203,
-            "longitude": -38.415710
+            "latitude": -12.153322,
+            "longitude": -38.413173
         },
         "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "end": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "end": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "end": {
+            "latitude": -12.148205, 
+            "longitude": -38.415707
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.148205, 
+            "longitude": -38.415707
+        },
+        "end": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "roadName": "Rua Holandesa"
+    },
+    {
+        "start": {
+            "latitude": -12.155914, 
+            "longitude": -38.412695
+        },
+        "end": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "end": {
+            "latitude": -12.155914, 
+            "longitude": -38.412695
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "end": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "end": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "end": {
+            "latitude": -12.150382, 
+            "longitude": -38.415432
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.150382, 
+            "longitude": -38.415432
+        },
+        "end": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.150382, 
+            "longitude": -38.415432
+        },
+        "end": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "end": {
+            "latitude": -12.150382, 
+            "longitude": -38.415432
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "end": {
+            "latitude": -12.149500,
+            "longitude": -38.415815
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.149500,
+            "longitude": -38.415815
+        },
+        "end": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.149500,
+            "longitude": -38.415815
+        },
+        "end": {
+            "latitude": -12.148201, 
+            "longitude": -38.416519
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.148201, 
+            "longitude": -38.416519
+        },
+        "end": {
+            "latitude": -12.149500,
+            "longitude": -38.415815
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.148201, 
+            "longitude": -38.416519
+        },
+        "end": {
+            "latitude": -12.148143, 
+            "longitude": -38.416638
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.148143, 
+            "longitude": -38.416638
+        },
+        "end": {
+            "latitude": -12.148201, 
+            "longitude": -38.416519
+        },
+        "roadName": "R. Fernando Dantas"
+    },
+    {
+        "start": {
+            "latitude": -12.153657, 
+            "longitude": -38.410077
+        },
+        "end": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "end": {
+            "latitude": -12.153657, 
+            "longitude": -38.410077
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "end": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "end": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "end": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "end": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154428,
+            "longitude": -38.411913
+        },
+        "end": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "roadName": "Av. Santos Dumont"
     },
     {
         "start": {
@@ -163,5 +460,2007 @@
             "longitude": -38.411913
         },
         "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "end": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "end": {
+            "latitude": -12.154686,
+            "longitude": -38.412501
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "end": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "end": {
+            "latitude": -12.154942, 
+            "longitude": -38.413125
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "end": {
+            "latitude": -12.155519, 
+            "longitude": -38.414336
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155519, 
+            "longitude": -38.414336
+        },
+        "end": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155519, 
+            "longitude": -38.414336
+        },
+        "end": {
+            "latitude": -12.155735, 
+            "longitude": -38.414939
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155735, 
+            "longitude": -38.414939
+        },
+        "end": {
+            "latitude": -12.155519, 
+            "longitude": -38.414336
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.155735, 
+            "longitude": -38.414939
+        },
+        "end": {
+            "latitude": -12.156009, 
+            "longitude": -38.415534
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156009, 
+            "longitude": -38.415534
+        },
+        "end": {
+            "latitude": -12.155735, 
+            "longitude": -38.414939
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156009, 
+            "longitude": -38.415534
+        },
+        "end": {
+            "latitude": -12.156277, 
+            "longitude": -38.416143
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156277, 
+            "longitude": -38.416143
+        },
+        "end": {
+            "latitude": -12.156009, 
+            "longitude": -38.415534
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156277, 
+            "longitude": -38.416143
+        },
+        "end": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "end": {
+            "latitude": -12.156277, 
+            "longitude": -38.416143
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "end": {
+            "latitude": -12.157001430060895, 
+            "longitude": -38.41779944973946
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.157001430060895, 
+            "longitude": -38.41779944973946
+        },
+        "end": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.157001430060895, 
+            "longitude": -38.41779944973946
+        },
+        "end": {
+            "latitude": -12.157255114086375,
+            "longitude": -38.418199769451086
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.157255114086375,
+            "longitude": -38.418199769451086
+        },
+        "end": {
+            "latitude": -12.157001430060895, 
+            "longitude": -38.41779944973946
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.157255114086375,
+            "longitude": -38.418199769451086
+        },
+        "end": {
+            "latitude": -12.157234137639062, 
+            "longitude": -38.4184358038331
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.157380317221836, 
+            "longitude": -38.41839154738648 
+        },
+        "end": {
+            "latitude": -12.157255114086375,
+            "longitude": -38.418199769451086
+        },
+        "roadName": "Av. Santos Dumont"
+    },
+    {
+        "start": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "end": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "roadName": "R. Humberto Máximo dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "end": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "roadName": "R. Humberto Máximo dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "end": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "roadName": "R. Humberto Máximo dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "end": {
+            "latitude": -12.154214, 
+            "longitude": -38.411314
+        },
+        "roadName": "R. Humberto Máximo dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "end": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "end": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "end": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "end": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "end": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "end": {
+            "latitude": -12.153950,
+            "longitude": -38.410700
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "end": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "end": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "end": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "end": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "roadName": "R. São José"
+    },
+    {
+        "start": {
+            "latitude": -12.156515492139713,
+            "longitude": -38.41078418133017
+        },
+        "end": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "roadName": "R. Dorival Caymmi"
+    },
+    {
+        "start": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "end": {
+            "latitude": -12.156515492139713,
+            "longitude": -38.41078418133017
+        },
+        "roadName": "R. Dorival Caymmi"
+    },
+    {
+        "start": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "end": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "roadName": "R. Dorival Caymmi"
+    },
+    {
+        "start": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "end": {
+            "latitude": -12.156358810634583, 
+            "longitude": -38.41023637978768
+        },
+        "roadName": "R. Dorival Caymmi"
+    },
+    {
+        "start": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "end": {
+            "latitude": -12.155739360321926,
+            "longitude": -38.40914669276566
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.155739360321926,
+            "longitude": -38.40914669276566
+        },
+        "end": {
+            "latitude": -12.156164777736281,
+            "longitude": -38.40955107542859
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.155739360321926,
+            "longitude": -38.40914669276566
+        },
+        "end": {
+            "latitude": -12.155147973726818, 
+            "longitude": -38.40902346292008
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.155147973726818, 
+            "longitude": -38.40902346292008
+        },
+        "end": {
+            "latitude": -12.155739360321926,
+            "longitude": -38.40914669276566
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.155147973726818, 
+            "longitude": -38.40902346292008
+        },
+        "end": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.154822276246227, 
+            "longitude": -38.41024241479771
+        },
+        "end": {
+            "latitude": -12.155147973726818, 
+            "longitude": -38.40902346292008
+        },
+        "roadName": "Praça Rosa Morena"
+    },
+    {
+        "start": {
+            "latitude": -12.150541188325155, 
+            "longitude": -38.41018102547468
+        },
+        "end": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "end": {
+            "latitude": -12.150541188325155, 
+            "longitude": -38.41018102547468
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "end": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "end": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "end": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "end": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "end": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "end": {
+            "latitude": -12.151313609637775, 
+            "longitude": -38.41198129994573
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "end": {
+            "latitude": -12.151807,
+            "longitude": -38.413192
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151807,
+            "longitude": -38.413192
+        },
+        "end": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151807,
+            "longitude": -38.413192
+        },
+        "end": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "end": {
+            "latitude": -12.151807,
+            "longitude": -38.413192
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "end": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "end": {
+            "latitude": -12.152083,
+            "longitude": -38.413778
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "end": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "end": {
+            "latitude": -12.152394,
+            "longitude": -38.414423
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "end": {
+            "latitude": -12.152921794046868, 
+            "longitude": -38.41562366871955
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152921794046868, 
+            "longitude": -38.41562366871955
+        },
+        "end": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.152921794046868, 
+            "longitude": -38.41562366871955
+        },
+        "end": {
+            "latitude": -12.15320104739831, 
+            "longitude": -38.416232530167804
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15320104739831, 
+            "longitude": -38.416232530167804
+        },
+        "end": {
+            "latitude": -12.152921794046868, 
+            "longitude": -38.41562366871955
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15320104739831, 
+            "longitude": -38.416232530167804
+        },
+        "end": {
+            "latitude": -12.153438346965986, 
+            "longitude": -38.416811887321245
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.153438346965986, 
+            "longitude": -38.416811887321245
+        },
+        "end": {
+            "latitude": -12.15320104739831, 
+            "longitude": -38.416232530167804
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.153438346965986, 
+            "longitude": -38.416811887321245
+        },
+        "end": {
+            "latitude": -12.15372349947723, 
+            "longitude": -38.41745427637692
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15372349947723, 
+            "longitude": -38.41745427637692
+        },
+        "end": {
+            "latitude": -12.153438346965986, 
+            "longitude": -38.416811887321245
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15372349947723, 
+            "longitude": -38.41745427637692
+        },
+        "end": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "end": {
+            "latitude": -12.15372349947723, 
+            "longitude": -38.41745427637692
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "end": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "end": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "end": {
+            "latitude": -12.154608902140938,
+            "longitude": -38.41897347813873
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154608902140938,
+            "longitude": -38.41897347813873
+        },
+        "end": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154608902140938,
+            "longitude": -38.41897347813873
+        },
+        "end": {
+            "latitude":-12.154962106418036, 
+            "longitude": -38.41973496632333
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude":-12.154962106418036, 
+            "longitude": -38.41973496632333
+        },
+        "end": {
+            "latitude": -12.154608902140938,
+            "longitude": -38.41897347813873
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "end": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "end": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "end": {
+            "latitude": -12.15434191276623, 
+            "longitude": -38.419109085665575
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15434191276623, 
+            "longitude": -38.419109085665575
+        },
+        "end": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15434191276623, 
+            "longitude": -38.419109085665575
+        },
+        "end": {
+            "latitude": -12.15469909676685, 
+            "longitude": -38.41987089926876
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.15469909676685, 
+            "longitude": -38.41987089926876
+        },
+        "end": {
+            "latitude": -12.15434191276623, 
+            "longitude": -38.419109085665575
+        },
+        "roadName": "Av. Democratas"
+    },
+    {
+        "start": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "end": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "roadName": "R. Vinicius de Moraes"
+    },
+    {
+        "start": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "end": {
+            "latitude": -12.151550161354047, 
+            "longitude": -38.41257876325258
+        },
+        "roadName": "R. Vinicius de Moraes"
+    },
+    {
+        "start": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "end": {
+            "latitude": -12.156409219312483, 
+            "longitude": -38.41733670529532
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.156409219312483, 
+            "longitude": -38.41733670529532
+        },
+        "end": {
+            "latitude": -12.156733, 
+            "longitude": -38.417151
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.156409219312483, 
+            "longitude": -38.41733670529532
+        },
+        "end": {
+            "latitude": -12.155964239891407, 
+            "longitude": -38.41754153897254
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.155964239891407, 
+            "longitude": -38.41754153897254
+        },
+        "end": {
+            "latitude": -12.156409219312483, 
+            "longitude": -38.41733670529532
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.155964239891407, 
+            "longitude": -38.41754153897254
+        },
+        "end": {
+            "latitude": -12.155550779176963, 
+            "longitude": -38.41776723533916
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.155550779176963, 
+            "longitude": -38.41776723533916
+        },
+        "end": {
+            "latitude": -12.155964239891407, 
+            "longitude": -38.41754153897254
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.155550779176963, 
+            "longitude": -38.41776723533916
+        },
+        "end": {
+            "latitude": -12.154548644150413, 
+            "longitude": -38.41824992211282
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154548644150413, 
+            "longitude": -38.41824992211282
+        },
+        "end": {
+            "latitude": -12.155550779176963, 
+            "longitude": -38.41776723533916
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154548644150413, 
+            "longitude": -38.41824992211282
+        },
+        "end": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "end": {
+            "latitude": -12.154548644150413, 
+            "longitude": -38.41824992211282
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "end": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "end": {
+            "latitude": -12.154333569350893, 
+            "longitude": -38.418365615213425
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "end": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "end": {
+            "latitude": -12.154220319967365, 
+            "longitude": -38.418423452089705
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "end": {
+            "latitude": -12.15326153693997, 
+            "longitude": -38.4188744586679
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.15326153693997, 
+            "longitude": -38.4188744586679
+        },
+        "end": {
+            "latitude": -12.154084193606469, 
+            "longitude": -38.41848320496333
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.15326153693997, 
+            "longitude": -38.4188744586679
+        },
+        "end": {
+            "latitude": -12.152877399715011, 
+            "longitude": -38.419062883845896
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.152877399715011, 
+            "longitude": -38.419062883845896
+        },
+        "end": {
+            "latitude": -12.15326153693997, 
+            "longitude": -38.4188744586679
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.152877399715011, 
+            "longitude": -38.419062883845896
+        },
+        "end": {
+            "latitude": -12.151543934212153, 
+            "longitude": -38.41971687594495
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.151543934212153, 
+            "longitude": -38.41971687594495
+        },
+        "end": {
+            "latitude": -12.152877399715011, 
+            "longitude": -38.419062883845896
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.151543934212153, 
+            "longitude": -38.41971687594495
+        },
+        "end": {
+            "latitude": -12.150939178976522, 
+            "longitude": -38.42002447648304
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.150939178976522, 
+            "longitude": -38.42002447648304
+        },
+        "end": {
+            "latitude": -12.151543934212153, 
+            "longitude": -38.41971687594495
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.150939178976522, 
+            "longitude": -38.42002447648304
+        },
+        "end": {
+            "latitude": -12.150376026677316, 
+            "longitude": -38.4203052078626
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.150376026677316, 
+            "longitude": -38.4203052078626
+        },
+        "end": {
+            "latitude": -12.150939178976522, 
+            "longitude": -38.42002447648304
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.150376026677316, 
+            "longitude": -38.4203052078626
+        },
+        "end": {
+            "latitude": -12.149599552502742, 
+            "longitude": -38.42061733391493
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.149599552502742, 
+            "longitude": -38.42061733391493
+        },
+        "end": {
+            "latitude": -12.150376026677316, 
+            "longitude": -38.4203052078626
+        },
+        "roadName": "R. Minas Gerais"
+    },
+    {
+        "start": {
+            "latitude": -12.153657, 
+            "longitude": -38.410077
+        },
+        "end": {
+            "latitude": -12.151727790065015, 
+            "longitude": -38.41105219120228
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151727790065015, 
+            "longitude": -38.41105219120228
+        },
+        "end": {
+            "latitude": -12.153657, 
+            "longitude": -38.410077
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151727790065015, 
+            "longitude": -38.41105219120228
+        },
+        "end": {
+            "latitude": -12.151469529411864, 
+            "longitude": -38.41119337703889
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151469529411864, 
+            "longitude": -38.41119337703889
+        },
+        "end": {
+            "latitude": -12.151727790065015, 
+            "longitude": -38.41105219120228
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151469529411864, 
+            "longitude": -38.41119337703889
+        },
+        "end": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "end": {
+            "latitude": -12.151469529411864, 
+            "longitude": -38.41119337703889
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "end": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "end": {
+            "latitude": -12.151053270659858, 
+            "longitude": -38.41139188581906
+        },
+        "roadName": "R. Antonio João dos Reis Bossa Nova"
+    },
+    {
+        "start": {
+            "latitude": -12.152249485578917, 
+            "longitude": -38.41008696725023
+        },
+        "end": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "end": {
+            "latitude": -12.152249485578917, 
+            "longitude": -38.41008696725023
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "end": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "end": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "end": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "end": {
+            "latitude": -12.150792207019286,
+            "longitude": -38.41077271517561
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "end": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "end": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "end": {
+            "latitude": -12.147212600167057, 
+            "longitude": -38.41258724137002
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.147212600167057, 
+            "longitude": -38.41258724137002
+        },
+        "end": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "roadName": "R. Domingo Ramos"
+    },
+    {
+        "start": {
+            "latitude": -12.150541188325155, 
+            "longitude": -38.41018102547468
+        },
+        "end": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "end": {
+            "latitude": -12.150541188325155, 
+            "longitude": -38.41018102547468
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "end": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "end": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "end": {
+            "latitude": -12.146662608529143, 
+            "longitude": -38.4120970485482
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.146662608529143, 
+            "longitude": -38.4120970485482
+        },
+        "end": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "roadName": "R. Martins dos Santos"
+    },
+    {
+        "start": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "end": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "roadName": "Tv. João Carneiro"
+    },
+    {
+        "start": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "end": {
+            "latitude": -12.14949219108509, 
+            "longitude": -38.41138433025994
+        },
+        "roadName": "Tv. João Carneiro"
+    },
+    {
+        "start": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "end": {
+            "latitude": -12.149046279569829, 
+            "longitude": -38.41037810539675
+        },
+        "roadName": "Tv. João Carneiro"
+    },
+    {
+        "start": {
+            "latitude": -12.149046279569829, 
+            "longitude": -38.41037810539675
+        },
+        "end": {
+            "latitude": -12.14921804909445, 
+            "longitude": -38.41077533633775
+        },
+        "roadName": "Tv. João Carneiro"
+    },
+    {
+        "start": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "end": {
+            "latitude": -12.151098235129119, 
+            "longitude": -38.41008927891684
+        },
+        "roadName": "Tv. Pedro Alcântara"
+    },
+    {
+        "start": {
+            "latitude": -12.151098235129119, 
+            "longitude": -38.41008927891684
+        },
+        "end": {
+            "latitude": -12.151278224325154, 
+            "longitude": -38.410506211963906
+        },
+        "roadName": "Tv. Pedro Alcântara"
+    },
+    {
+        "start": {
+            "latitude": -12.153322,
+            "longitude": -38.413173
+        },
+        "end": {
+            "latitude": -12.15327196083411, 
+            "longitude": -38.41286804740982
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.15327196083411, 
+            "longitude": -38.41286804740982
+        },
+        "end": {
+            "latitude": -12.153322,
+            "longitude": -38.413173
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.15327196083411, 
+            "longitude": -38.41286804740982
+        },
+        "end": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "end": {
+            "latitude": -12.15327196083411, 
+            "longitude": -38.41286804740982
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "end": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "end": {
+            "latitude": -12.153149,
+            "longitude": -38.412537
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "end": {
+            "latitude": -12.153657473818264, 
+            "longitude": -38.41189373500316
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153657473818264, 
+            "longitude": -38.41189373500316
+        },
+        "end": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "end": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "end": {
+            "latitude": -12.153032104306456, 
+            "longitude": -38.412273267570626
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "end": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.15268679170931, 
+            "longitude": -38.41132966343928
+        },
+        "end": {
+            "latitude": -12.152896351676944, 
+            "longitude": -38.41192013645148
+        },
+        "roadName": "Tv. Dom Diego"
+    },
+    {
+        "start": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "end": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "end": {
+            "latitude": -12.147892398842975, 
+            "longitude": -38.41147008221034
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "end": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "end": {
+            "latitude": -12.148165856838675, 
+            "longitude": -38.412080829771384
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "end": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "end": {
+            "latitude": -12.148436888376969, 
+            "longitude": -38.412659206003454
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "end": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "end": {
+            "latitude": -12.148714928087877, 
+            "longitude": -38.413286216097724
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "end": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "end": {
+            "latitude": -12.148965017905454, 
+            "longitude": -38.413887608798966
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "end": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "end": {
+            "latitude": -12.149256, 
+            "longitude": -38.414468
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "end": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "end": {
+            "latitude": -12.149517, 
+            "longitude": -38.415088
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "end": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "end": {
+            "latitude": -12.149785,
+            "longitude": -38.415664
+        },
+        "roadName": "Av. Bahia"
+    },
+    {
+        "start": {
+            "latitude": -12.156228951522042, 
+            "longitude": -38.413267338635045
+        },
+        "end": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "roadName": "R. Virgílio Oliveira Costa"
+    },
+    {
+        "start": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "end": {
+            "latitude": -12.156228951522042, 
+            "longitude": -38.413267338635045
+        },
+        "roadName": "R. Virgílio Oliveira Costa"
+    },
+    {
+        "start": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "end": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "end": {
+            "latitude": -12.155247, 
+            "longitude": -38.413743
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "end": {
+            "latitude": -12.150652037271207, 
+            "longitude": -38.41602527649966
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.150652037271207, 
+            "longitude": -38.41602527649966
+        },
+        "end": {
+            "latitude": -12.15266745036557, 
+            "longitude": -38.4150288888867
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.150652037271207, 
+            "longitude": -38.41602527649966
+        },
+        "end": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "end": {
+            "latitude": -12.150652037271207, 
+            "longitude": -38.41602527649966
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "end": {
+            "latitude": -12.149746978628148, 
+            "longitude": -38.41643090948255
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.149746978628148, 
+            "longitude": -38.41643090948255
+        },
+        "end": {
+            "latitude": -12.15004651821412, 
+            "longitude": -38.41629150200561
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.149746978628148, 
+            "longitude": -38.41643090948255
+        },
+        "end": {
+            "latitude": -12.148145747417972, 
+            "longitude": -38.41724948032939
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.148145747417972, 
+            "longitude": -38.41724948032939
+        },
+        "end": {
+            "latitude": -12.149746978628148, 
+            "longitude": -38.41643090948255
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.148145747417972, 
+            "longitude": -38.41724948032939
+        },
+        "end": {
+            "latitude": -12.148046105867145, 
+            "longitude": -38.41729038401491
+        },
+        "roadName": "R. Duque de Caxias"
+    },
+    {
+        "start": {
+            "latitude": -12.148046105867145, 
+            "longitude": -38.41729038401491
+        },
+        "end": {
+            "latitude": -12.148145747417972, 
+            "longitude": -38.41724948032939
+        },
+        "roadName": "R. Duque de Caxias"
     }
-]
+] 
