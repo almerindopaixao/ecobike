@@ -12,3 +12,8 @@ export function emailIsValid(email: string): boolean {
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     return regex.test(email);
 }
+
+export function formateDistance(distance: number): string {
+    if (distance < 1) return `${Math.round(distance * 1000)} m`;
+    return `${Math.round(distance)} km`
+}

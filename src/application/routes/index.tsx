@@ -52,7 +52,7 @@ export function Routes() {
 
     function handleExitButton() {
         Alert.alert(
-            'Logout', 
+            'Sair', 
             'Você deseja mesmo fazer logout da aplicação ?', [
             {
                 text: 'Não',

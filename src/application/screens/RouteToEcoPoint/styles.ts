@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
 
     position: 'absolute',
-    bottom: 100,
+    bottom: 70,
     right: 0,
     left: 0,
 
@@ -53,5 +53,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
 
     marginBottom: 20
-  }
+  },
+
+  mapMarker: {
+    width: 90,
+    height: 70,
+  },
 });

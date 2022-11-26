@@ -10,7 +10,7 @@ export class EcoPointController {
         return this.INSTANCE;
     }
 
-    async listAllEcoPointsInRegion() {
+    public async listAllEcoPointsInRegion() {
         try {
             return this.ecoPointRepository.listEcoPoints();
         } catch(err) {

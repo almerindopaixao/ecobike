@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
+import { MapGraph, MapGraphLoader } from 'map-graph';
 
 import { 
   useFonts, 
@@ -23,10 +24,14 @@ import { Routes } from './src/application/routes';
 import { AuthProvider } from './src/application/context/auth.provider';
 import { Loading } from './src/application/components/Loading';
 
+import JardimPetrolarMap from './src/assets/jsons/maps/jardim-petrolar.json';
+
 // Mantem a tela inicial visível enquanto o usuário confirma sua localização
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const mapGraph = MapGraph.getInstance();
+
   const [appIsReady, setAppIsReady] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
@@ -53,7 +58,11 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
+      // Verificar Localização do usuário
       await requestLocationPermissionFromDevice();
+
+      // Carregar o mapa para rotas
+      MapGraphLoader.loadRoadMap(JardimPetrolarMap, mapGraph);
     })();
   }, []);
 

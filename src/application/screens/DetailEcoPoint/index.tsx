@@ -1,18 +1,28 @@
-import { useContext } from 'react';
-import { View, Text, Image } from 'react-native';
+import { useContext, useState } from 'react';
+import { View, Text, Image, Alert } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
 import { styles } from './styles';
-import { AppButton } from '../../components';
+import { AppButton, Loading } from '../../components';
 
 import { DetailEcoPointParams } from '../../@types/navigation';
 import { EcoPointDto } from '../../../dtos/ecopoint.dto';
 import { AppContext } from '../../context/app.provider';
+import { AuthContext } from '../../context/auth.provider';
 
 import { calculateFaturamento } from '../../utils';
+import { supabase } from '../../../infra/database/supabase/supabase.database';
+import { EcoBikeRepository } from '../../../infra/repositories/supabase/ecobike.repository';
+import { EcoBikeController } from '../../../controllers/ecobike.controller';
 
 export function DetailEcoPoint() {
+    const ecoBikeRepository = EcoBikeRepository.getInstance(supabase);
+    const ecoBikeController = EcoBikeController.getInstance(ecoBikeRepository);
+
     const [app] = useContext(AppContext);
+    const [auth] = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const route = useRoute();
     const navigation = useNavigation();
 
@@ -30,9 +40,33 @@ export function DetailEcoPoint() {
         navigation.goBack();
     }
 
-    function handleReserveButton() {
-        navigation.navigate('RouteToEcoPoint');
+    async function handleReserveButton() {
+        try {
+            setIsLoading(true);
+            
+            const ecoPointId = params.ecopoint.id;
+            const userId = auth.session?.user.id as string;
+            const timeUsage = app.time_usage;
+    
+            const result = await ecoBikeController.reserveEcoBike(ecoPointId, userId, timeUsage);
+    
+            if (!result.success) {
+                Alert.alert(
+                    result.error?.title as string, 
+                    result.error?.message
+                )
+                return;
+            }
+    
+            navigation.navigate('RouteToEcoPoint');
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setIsLoading(false);
+        }
     }
+
+    if (isLoading) return <Loading />
 
     return (
         <View style={styles.container}>
