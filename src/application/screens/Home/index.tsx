@@ -1,4 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { 
+  useEffect, 
+  useState, 
+  useRef,
+  useContext
+} from 'react';
 import { 
   ScrollView,
   View, 
@@ -15,15 +20,18 @@ import * as Location from 'expo-location';
 import { startActivityAsync, ActivityAction } from 'expo-intent-launcher';
 import { MaterialIcons } from '@expo/vector-icons';
 
+import { AuthContext } from '../../context/auth.provider';
 import { CallToAction, EnableLocationModal } from '../../components';
 
 import { styles } from './styles';
 import { THEME } from '../../theme';
+import { EcobikeUserStatus } from '../../../constants/app.contants';
 
 export function Home() {
   const appState = useRef(AppState.currentState);
   const [isLocationModalVisible, setIsLocationModalVisible] = useState<boolean>(false);
   const navigation = useNavigation();
+  const [auth] = useContext(AuthContext);
 
   function handleGoReserveEcobike() {
     navigation.navigate('SelectLocation');
@@ -101,7 +109,11 @@ export function Home() {
           style={styles.actions}
         > 
           <CallToAction 
-            title='Reservar EcoBike'
+            title={
+              auth.session?.user.ecobike?.status === EcobikeUserStatus.EM_USO ? 
+              'Devolver EcoBike' : 
+              'Reservar EcoBike'
+            }
             icon='directions-bike'
             onPress={handleGoReserveEcobike}
           />

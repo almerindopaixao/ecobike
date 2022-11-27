@@ -7,7 +7,6 @@ import {
     useRef
 } from 'react';
 import { View, Text, Alert, TouchableOpacity } from "react-native";
-import { useNavigation } from '@react-navigation/native';
 import MapView, { 
     Marker, 
     Polyline,
@@ -99,7 +98,7 @@ export function RouteToEcoPoint() {
         });
 
         // Abrir modal de confirmação de retirada
-        if (route.distance < 0.002) {
+        if (route.distance > 0.002) {
             openWithdrawModal();
             return;
         }

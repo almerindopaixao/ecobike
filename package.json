@@ -23,8 +23,8 @@
     "expo-location": "~14.3.0",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
-    "luxon": "^3.1.0",
     "map-graph": "^1.0.0",
+    "moment": "^2.29.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-native": "0.69.6",
@@ -39,7 +39,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@types/luxon": "^3.1.0",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.69.1",
     "typescript": "~4.3.5"

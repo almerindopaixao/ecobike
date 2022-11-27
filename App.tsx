@@ -1,4 +1,4 @@
-import 'react-native-url-polyfill/auto'
+import 'react-native-url-polyfill/auto';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
