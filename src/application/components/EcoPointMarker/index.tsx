@@ -5,11 +5,12 @@ import { styles } from './styles';
 interface EcoPointMarkerProps {
     image_url: string;
     name: string;
+    disabled?: boolean;
 }
 
-export function EcoPointMarker({ image_url, name }: EcoPointMarkerProps) {
+export function EcoPointMarker({ image_url, name, disabled = false }: EcoPointMarkerProps) {
  return (
-    <View style={styles.container}>
+    <View style={[styles.container, disabled && styles.disabled]}>
         <Image 
             style={styles.image}
             source={{

@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { 
+  ScrollView,
   View, 
   Text, 
   Linking, 
   Platform, 
   AppState, 
   AppStateStatus, 
-  NativeEventSubscription 
+  NativeEventSubscription, 
+  FlatList
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -26,6 +28,10 @@ export function Home() {
 
   function handleGoReserveEcobike() {
     navigation.navigate('SelectLocation');
+  }
+
+  function handleGoRecords() {
+    navigation.navigate('Records');
   }
 
   async function openSettings() {
@@ -90,11 +96,23 @@ export function Home() {
           <Text style={styles.title}>Seu marketplace de aluguel de bicicletas</Text>
         </View>
 
-        <CallToAction 
-          title='Reservar uma ecobike?'
-          subtitle='Encontre um ecopoint mais próximo de você'
-          onPress={handleGoReserveEcobike}
-        />
+
+        <ScrollView 
+          horizontal={true} 
+          style={styles.actions}
+        > 
+          <CallToAction 
+            title='Reservar EcoBike'
+            icon='directions-bike'
+            onPress={handleGoReserveEcobike}
+          />
+
+          <CallToAction 
+            title='Histórico de Corridas'
+            icon='receipt-long'
+            onPress={handleGoRecords}
+          />
+        </ScrollView>
       </SafeAreaView>
     </>
   );

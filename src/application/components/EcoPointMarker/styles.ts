@@ -12,6 +12,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
+  disabled: {
+    backgroundColor: '#B7B7B7'
+  },
+
   image: {
     width: 90,
     height: 35,

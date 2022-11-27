@@ -3,24 +3,22 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { styles } from './styles';
 import { THEME } from '../../theme';
+import { IconProps } from 'phosphor-react';
 
 interface CallToActionProps extends TouchableOpacityProps {
   title: string;
-  subtitle: string;
+  icon: 'receipt-long' | 'directions-bike';
 }
 
-export function CallToAction({ title, subtitle, ...rest }: CallToActionProps) {
+export function CallToAction({ title, icon, ...rest }: CallToActionProps) {
   return (
     <TouchableOpacity style={styles.container} {...rest}>
-        <View>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>{subtitle}</Text>
-        </View>
-        <MaterialIcons 
-          name='chevron-right' 
+        <MaterialIcons
+          name={icon}
           size={60} 
           color={THEME.COLORS.PRIMARY} 
         />
+        <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 }

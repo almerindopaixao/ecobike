@@ -5,14 +5,15 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-around',
-    backgroundColor: THEME.COLORS.PRIMARY
+    justifyContent: 'space-between',
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
 
   content: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
 
   title: {
@@ -22,4 +23,8 @@ export const styles = StyleSheet.create({
     marginTop: 15,
     textAlign: 'center'
   },
+
+  actions: {
+    flex: 2,
+  }
 });

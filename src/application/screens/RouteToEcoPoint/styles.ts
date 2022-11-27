@@ -14,9 +14,7 @@ export const styles = StyleSheet.create({
   card: {
     flex: 1,
     backgroundColor: THEME.COLORS.WHITE,
-
     borderRadius: 15,
-    padding: 24,
 
     marginHorizontal: 20,
 
@@ -24,9 +22,10 @@ export const styles = StyleSheet.create({
     bottom: 70,
     right: 0,
     left: 0,
+  },
 
-    borderBottomWidth: 40,
-    borderBottomColor: THEME.COLORS.PRIMARY
+  content: {
+    padding: 24
   },
 
   titleCard: {
@@ -59,4 +58,25 @@ export const styles = StyleSheet.create({
     width: 90,
     height: 70,
   },
+
+  cancelButton: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    borderBottomEndRadius: 15,
+    borderBottomStartRadius: 15,
+
+    height: 45,
+    backgroundColor: THEME.COLORS.ERROR
+  },
+
+  cancelButtonText: {
+    fontFamily: THEME.FONT_FAMILY.LEXEND.REGULAR,
+    color: THEME.COLORS.WHITE,
+    fontSize: 16,
+
+    marginLeft: 5
+  }
 });

@@ -14,6 +14,6 @@ export function emailIsValid(email: string): boolean {
 }
 
 export function formateDistance(distance: number): string {
-    if (distance < 1) return `${Math.round(distance * 1000)} m`;
-    return `${Math.round(distance)} km`
+    if (distance < 1) return `${(distance * 1000).toFixed(2)} m`;
+    return `${distance.toFixed(2)} km`
 }

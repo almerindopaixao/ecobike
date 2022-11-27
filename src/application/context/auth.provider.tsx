@@ -1,8 +1,8 @@
-import { Session } from '@supabase/supabase-js';
+import { UserSessionDto } from '../../dtos/user-session.dto';
 import { useState, createContext } from 'react';
 
 export interface IAuthContext {
-    session: Session | null,
+    session: UserSessionDto | null,
 }
 
 interface AuthProviderProps {

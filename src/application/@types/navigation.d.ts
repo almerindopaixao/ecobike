@@ -12,6 +12,8 @@ export declare global {
             SelectUsageTime: undefined;
             DetailEcoPoint: DetailEcoPointParams;
             RouteToEcoPoint: undefined;
+            RefundEcoBike: undefined;
+            Records: undefined;
         }
     }
 }

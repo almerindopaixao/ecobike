@@ -5,16 +5,16 @@ import {
     useEffect, 
     useState
 } from 'react';
-import { View, Text, Alert } from "react-native";
+import { View, Text, Alert, TouchableOpacity } from "react-native";
 import MapView, { 
     Marker, 
     Polyline,
     PROVIDER_GOOGLE
 } from 'react-native-maps';
 import { MapGraph, GeographicPoint } from 'map-graph';
-import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
-import { EcoPointMarker, Loading } from '../../components';
+import { Loading } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
@@ -23,7 +23,9 @@ import { formateDistance } from '../../utils';
 
 import { supabase } from '../../../infra/database/supabase/supabase.database';
 import { EcoBikeRepository } from '../../../infra/repositories/supabase/ecobike.repository';
+import { AuthRepository } from '../../../infra/repositories/supabase/auth.repository';
 import { EcoBikeController } from '../../../controllers/ecobike.controller';
+import { AuthController } from '../../../controllers/auth.controller';
 
 const { 
     LAT_DELTA = '', 
@@ -32,10 +34,17 @@ const {
 
 export function RouteToEcoPoint() {
     const mapGraph = MapGraph.getInstance();
+
+    const authRepository = AuthRepository.getInstance(supabase);
     const ecoBikeRepository = EcoBikeRepository.getInstance(supabase);
+
+    const authController = AuthController.getInstance(authRepository);
     const ecoBikeController = EcoBikeController.getInstance(ecoBikeRepository);
 
-    const [auth] = useContext(AuthContext);
+    const [auth, setAuth] = useContext(AuthContext);
+
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     const [userLocation, setUserLocation] = useState<{
         latitude: number;
         longitude: number;
@@ -47,6 +56,7 @@ export function RouteToEcoPoint() {
         distance: 0,
         routeCoordinates: []
     });
+
     const [goalEcoPoint, setGoalEcoPoint] = useState({
         latitude: 0,
         longitude: 0,
@@ -54,9 +64,12 @@ export function RouteToEcoPoint() {
         image: '',
         tempoPrevisto: 0,
         ecoBikeNumSerie: ''
-    })
+    });
 
-    function handleUserLocationChange(userPoint: GeographicPoint, goalPoint: GeographicPoint) {     
+    function handleUserLocationChange(
+        userPoint: GeographicPoint, 
+        goalPoint: GeographicPoint
+    ) {     
         const route = createRoute(userPoint, goalPoint);
 
         if (!route) {
@@ -66,7 +79,7 @@ export function RouteToEcoPoint() {
             )
             return;
         }
-
+        
         setUserLocation({
             ...userPoint.toCordinates(),
             distance: route.distance,
@@ -74,12 +87,67 @@ export function RouteToEcoPoint() {
         });
     }
 
+    async function cancelarReserva() {
+        try {
+            setIsLoading(true)
+
+            const userId = auth.session?.user.id as string;
+            const result = await ecoBikeController.cancelEcoBikeReserve(userId);
+     
+            if (!result?.success) {
+                Alert.alert(
+                    result?.error?.title as string,
+                    result?.error?.message
+                );
+            }
+    
+            const { session } = await authController.session();
+    
+            if (session) {
+                setAuth({
+                    ...auth,
+                    session
+                })   
+            }
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    function handlePressCancelarReservaButton() {
+        Alert.alert(
+            'Você deseja mesmo cancelar a reserva da ecobike ?',
+            'Esta é uma ação irreversível, você será redirecionado para a tela inicial',[
+                {
+                    text: 'Não',
+                    style: 'cancel',
+                },
+                { 
+                    text: 'Sim',
+                    onPress: () => cancelarReserva()
+                },
+            ]
+        )
+        console.log('cancelar');
+    }
+
     function createRoute(startPoint: GeographicPoint, goalPoint: GeographicPoint) {
         const neighborStartPoint = mapGraph.getNextVertex(startPoint);
         const neighborGoalPoint = mapGraph.getNextVertex(goalPoint);
+
+        // Clear cache Edges
+        mapGraph.edges.forEach((edges) => {
+            edges.start.distance = 0;
+            edges.start.actualDistance = 0;
+
+            edges.end.distance = 0;
+            edges.end.actualDistance = 0;
+        });
+
         return mapGraph.aStarSearch(neighborStartPoint, neighborGoalPoint);
     }
-
 
     useEffect(() => {
         let subscription: Location.LocationSubscription;
@@ -88,16 +156,25 @@ export function RouteToEcoPoint() {
             try {
                 // Pegar EcoBike reservada do usuário
                 const userId = auth.session?.user.id as string
-                const response =  await ecoBikeController.getReservedEcoBike(userId);
+                const reservedEcoBike =  await ecoBikeController.getReservedEcoBike(userId);
 
-                if (!response) return;
+                if (!reservedEcoBike) return;
 
-                const ecoPoint = response.ecoBike.ecoPoint;
+                const {
+                    tempoPrevisto,
+                    ecoBikeNumSerie,
+                    ecoPointImage,
+                    ecoPointLatitude,
+                    ecoPointLongitude
+                } = reservedEcoBike;
 
                 setGoalEcoPoint({
-                    ...ecoPoint,
-                    tempoPrevisto: response.tempoPrevisto,
-                    ecoBikeNumSerie: response.ecoBike.numSerie
+                    latitude: ecoPointLatitude,
+                    longitude: ecoPointLongitude,
+                    image: ecoPointImage,
+                    name: ecoPointImage,
+                    tempoPrevisto: tempoPrevisto,
+                    ecoBikeNumSerie: ecoBikeNumSerie
                 });
 
                 // Listner para quando o usuário mover-se pelo mapa
@@ -115,8 +192,8 @@ export function RouteToEcoPoint() {
                         });
 
                         const goalPoint = new GeographicPoint({ 
-                            latitude: ecoPoint.latitude,
-                            longitude: ecoPoint.longitude 
+                            latitude: ecoPointLatitude,
+                            longitude: ecoPointLongitude
                         });
 
                         handleUserLocationChange(userPoint, goalPoint);
@@ -132,19 +209,13 @@ export function RouteToEcoPoint() {
         }
     }, []);
 
-    if (!userLocation.routeCoordinates.length) return <Loading />;
+    if (!userLocation.routeCoordinates.length || isLoading) return <Loading />;
 
     return (
         <View style={styles.container}>
             <MapView
                 style={styles.map}
                 provider={PROVIDER_GOOGLE}
-                region={{
-                    latitude: userLocation.latitude,
-                    longitude: userLocation.longitude,
-                    latitudeDelta: LAT_DELTA,
-                    longitudeDelta: LNG_DELTA
-                }}
                 initialRegion={{
                     latitude: userLocation.latitude,
                     longitude: userLocation.longitude,
@@ -205,9 +276,19 @@ export function RouteToEcoPoint() {
                     coordinates={userLocation.routeCoordinates.map((point) => point.toCordinates())}
                 />
             </MapView>
+
             <View style={styles.card}>
-                <Text style={styles.titleCard}>Sua ecobike foi reservada</Text>
-                <Text style={styles.textTimeCard}>{formateDistance(userLocation.distance)}</Text>
+                <View style={styles.content}>
+                    <Text style={styles.titleCard}>Sua ecobike foi reservada</Text>
+                    <Text style={styles.textTimeCard}>{formateDistance(userLocation.distance)}</Text>
+                </View>
+
+                <TouchableOpacity 
+                    style={styles.cancelButton}
+                    onPress={handlePressCancelarReservaButton}
+                >
+                    <Text style={styles.cancelButtonText}>Cancelar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

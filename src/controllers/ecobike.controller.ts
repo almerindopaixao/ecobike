@@ -1,3 +1,4 @@
+import { PostgrestError } from '@supabase/supabase-js';
 import { IEcoBikeRepository } from '../infra/repositories/supabase/ecobike.repository';
 
 export class EcoBikeController {
@@ -12,7 +13,7 @@ export class EcoBikeController {
 
     public async reserveEcoBike(ecopointId: string, userId: string, timeUsage: number) {
         try {
-            const availableEcoBikes = await this.ecoBikeRepository.getAvailableEcoBikes(ecopointId);
+            const availableEcoBikes = await this.ecoBikeRepository.getAvailableEcoBikesFromEcopoint(ecopointId);
     
             if (!availableEcoBikes.length) return {
                 success: false,
@@ -72,6 +73,23 @@ export class EcoBikeController {
         try {
             const result = await this.ecoBikeRepository.getReservedEcoBike(userId);
             return result;
+        } catch (err) {
+            return null;
+        }
+    }
+
+    public async cancelEcoBikeReserve(userId: string) {
+        try {
+            const error = await this.ecoBikeRepository.cancelEcoBikeReserve(userId);
+            if (!error) return { success: true };
+
+            return {
+                success: false,
+                error: {
+                    title: 'Ops, não foi possível efetuar o cancelamento',
+                    message: error
+                }
+            };
         } catch (err) {
             return null;
         }

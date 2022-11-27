@@ -1,22 +1,13 @@
+import { PostgrestError } from "@supabase/supabase-js";
+import { EcobikeUserStatus } from "../../../constants/app.contants";
+import { ReservedEcobikeDto } from "../../../dtos/reserved-ecobike.dto";
 import { ISupabaseClient } from "../../database/supabase/supabase.database";
 
-interface ReservedEcoBikeResponse {
-    tempoPrevisto: number;
-    ecoBike: {
-        numSerie: string;
-        ecoPoint: {
-            name: string;
-            image: string;
-            latitude: number;
-            longitude: number;
-        }
-    }
-}
-
 export interface IEcoBikeRepository {
-    getAvailableEcoBikes: (ecopointId: string) => Promise<string[]>;
+    getAvailableEcoBikesFromEcopoint: (ecopointId: string) => Promise<string[]>;
     reserveEcoBike: (ecobikeId: string, userId: string, timeUsage: number) => Promise<string | undefined>;
-    getReservedEcoBike: (userId: string) => Promise<ReservedEcoBikeResponse | null>;
+    getReservedEcoBike: (userId: string) => Promise<ReservedEcobikeDto | null>;
+    cancelEcoBikeReserve: (userId: string) => Promise<string | undefined>;
 }
 
 export class EcoBikeRepository implements IEcoBikeRepository {
@@ -31,61 +22,55 @@ export class EcoBikeRepository implements IEcoBikeRepository {
         return this.INSTANCE;
     }
 
-    public async getAvailableEcoBikes(ecopointId: string) {
-        const { data, error } = await this.supabase
-            .from('ecobikes')
-            .select('id, reservas(ecobike_id)')
-            .eq('ecopoint_id', ecopointId);
+    public async getAvailableEcoBikesFromEcopoint(ecopointId: string): Promise<string[]> {
+        const { data, error } = await this.supabase.rpc('get_ecobikes_availables_from_ecopoint', {
+            ecopoint_id: ecopointId
+        });
 
         if (error) {
             console.warn(error);
             return [];
         }
 
-        const availableEcoBikes = data.reduce<string[]>((acc, { id, reservas }) => {
-            if (Array.isArray(reservas) && reservas.length) return acc;
-            acc.push(id);
-            return acc;
-        }, [])
-
-        return availableEcoBikes;
+        return data.map(({ id }) => id);
     }
 
     public async reserveEcoBike(ecobikeId: string, userId: string, timeUsage: number) {
         const { error } = await this.supabase
-            .from('reservas')
+            .from('ecobikes_user')
             .insert({ 
-                user_id: userId, 
+                user_id: userId,
                 ecobike_id: ecobikeId,
-                tempo_previsto: timeUsage
+                tempo_previsto: timeUsage,
+                status: EcobikeUserStatus.RESERVADA
             });
-            
+
+        if (error?.message) console.warn(error);
+
         return error?.details;
     }
 
     public async getReservedEcoBike(userId: string) {
-        const { data, error } = await this.supabase
-            .from('reservas')
-            .select(`
-                tempoPrevisto:tempo_previsto,
-                ecoBike:ecobikes(
-                    numSerie:num_serie,
-                    ecoPoint:ecopoints(
-                        name:nome,
-                        image:imagem_url_sm,
-                        latitude, 
-                        longitude
-                    )
-                )
-            `,)
-            .eq('user_id', userId)
-            .single();
+        const { data, error } = await this.supabase.rpc('get_reserved_ecobike_from_user', {
+            current_user_id: userId
+        }).single();
 
         if (error) {
             console.warn(error);
             return null;
         }
 
-        return data as unknown as ReservedEcoBikeResponse
+        return data;
+    }
+    
+    public async cancelEcoBikeReserve(userId: string) {
+        const { error } = await this.supabase
+            .from('ecobikes_user')
+            .delete()
+            .eq('user_id', userId);
+
+        if (error?.message) console.warn(error);        
+
+        return error?.message || error?.details;
     }
 }

@@ -1,4 +1,5 @@
-import { AuthError, Session } from "@supabase/supabase-js";
+import { AuthError, PostgrestError, Session } from "@supabase/supabase-js";
+import { UserSessionDto } from '../../../dtos/user-session.dto';
 import { ISupabaseClient } from "../../database/supabase/supabase.database";
 
 export interface AuthResponse {
@@ -8,9 +9,9 @@ export interface AuthResponse {
 
 export interface IAuthRepository {
     signUp: (email: string, password: string) => Promise<AuthResponse>,
-    signIn: (email: string, password: string) => Promise<AuthResponse & { session: Session | null }>
+    signIn: (email: string, password: string) => Promise<AuthResponse & { session: UserSessionDto | null }>
     signOut: () => Promise<AuthResponse>,
-    getSession: () => Promise<AuthResponse & { session: Session | null }>
+    getSession: () => Promise<AuthResponse & { session: UserSessionDto | null }>
 }
 
 export class AuthRepository implements IAuthRepository {
@@ -25,7 +26,7 @@ export class AuthRepository implements IAuthRepository {
         return this.INSTANCE;
     }
 
-    private formatResponse(error: AuthError | null) {
+    private formatResponse(error: AuthError | PostgrestError | null) {
         if (!error) return { success: true };
         return { 
             success: false, 
@@ -42,15 +43,53 @@ export class AuthRepository implements IAuthRepository {
         return this.formatResponse(error);
     }
 
-    public async signIn(email: string, password: string): Promise<AuthResponse & { session: Session | null }> {
-        const { data, error } = await this.supabase.auth.signInWithPassword({
+    private async buildUserSession(
+        session: Session | null
+    ): Promise<[UserSessionDto | null, PostgrestError | null]> {
+        if (!session) return [null, null];
+
+        const { data, error } = await this.supabase
+            .from('ecobikes_user')
+            .select(`
+                id:ecobike_id,
+                status,
+                tempoPrevisto:tempo_previsto
+            `)
+            .eq('user_id', session.user.id)
+            .maybeSingle();
+
+        if (error) {
+            console.warn(error);
+            return [null, error];
+        }
+
+        const responseSession = {
+            ...session,
+            user: {
+                ...session.user,
+                ecobike: data
+            }
+        }
+
+        return [responseSession, null]
+    }
+
+    public async signIn(email: string, password: string): Promise<AuthResponse & { session: UserSessionDto | null }> {
+        const { data, error: errorInSignIn } = await this.supabase.auth.signInWithPassword({
             email,
             password
         });
 
+        if (errorInSignIn) return { 
+            ...this.formatResponse(errorInSignIn),
+            session: null
+        }
+
+        const [session, error] = await this.buildUserSession(data.session);
+
         return { 
             ...this.formatResponse(error),
-            session: data.session
+            session,
         }
     }
 
@@ -59,12 +98,19 @@ export class AuthRepository implements IAuthRepository {
         return this.formatResponse(error);
     }
 
-    public async getSession(): Promise<AuthResponse & { session: Session | null }> {
-        const { data, error } = await this.supabase.auth.getSession();
+    public async getSession(): Promise<AuthResponse & { session: UserSessionDto | null }> {
+        const { data, error: errorInGetSession } = await this.supabase.auth.getSession();
+
+        if (errorInGetSession) return { 
+            ...this.formatResponse(errorInGetSession),
+            session: null
+        }
+
+        const [session, error] = await this.buildUserSession(data.session);
 
         return { 
             ...this.formatResponse(error),
-            session: data.session
+            session
         }
     }
 }

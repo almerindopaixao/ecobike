@@ -12,4 +12,7 @@ export interface EcoPointDto {
     functionamentoFim: number;
     latitude: number;
     longitude: number;
+    quantidadeSlots: number;
+    slotsDisponiveis: number;
+    ecobikesDisponiveis: number;
 }

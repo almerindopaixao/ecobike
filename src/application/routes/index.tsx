@@ -10,7 +10,9 @@ import {
     SelectEcoPoint, 
     SelectUsageTime,
     DetailEcoPoint,
-    RouteToEcoPoint
+    RouteToEcoPoint,
+    RefundEcoBike,
+    Records
 } from '../screens';
 import { Loading, Logotipo, ExitButton } from '../components';
 import { THEME } from '../theme';
@@ -21,13 +23,14 @@ import { AppProvider } from '../context/app.provider';
 import { supabase } from '../../infra/database/supabase/supabase.database';
 import { AuthRepository } from '../../infra/repositories/supabase/auth.repository';
 import { AuthController } from '../../controllers/auth.controller';
+import { EcobikeUserStatus } from '../../constants/app.contants';
 
 
 export function Routes() {
     const authRepository = AuthRepository.getInstance(supabase);
     const authController = AuthController.getInstance(authRepository);
 
-    const { Navigator, Screen } = createNativeStackNavigator();
+    const { Navigator, Screen, Group } = createNativeStackNavigator();
     const [auth, setAuth] = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -50,6 +53,28 @@ export function Routes() {
         }
     }
 
+    async function checkUserSession() {
+        try {
+            setIsLoading(true);
+
+            const { session, errorMessage, success } = await authController.session();
+
+            if (!success) {
+                console.error(errorMessage);
+                return;
+            }
+
+            setAuth({
+                ...auth,
+                session
+            });
+        } catch (err) {
+            console.error(err)
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
     function handleExitButton() {
         Alert.alert(
             'Sair', 
@@ -66,27 +91,7 @@ export function Routes() {
     }
 
     useEffect(() => {
-        (async() => {
-            try {
-                setIsLoading(true);
-
-                const { session, errorMessage, success } = await authController.session();
-
-                if (!success) {
-                    console.error(errorMessage);
-                    return;
-                }
-
-                setAuth({
-                    ...auth,
-                    session
-                });
-            } catch (err) {
-                console.error(err)
-            } finally {
-                setIsLoading(false);
-            }
-        })();
+        checkUserSession();
     }, []);
 
     if (isLoading) return <Loading />;
@@ -120,7 +125,8 @@ export function Routes() {
                             name='Login'
                             component={Login} 
                         />
-                    ) : (
+                    ) : auth.session.user.ecobike === null || 
+                        auth.session.user.ecobike.status === EcobikeUserStatus.EM_USO ? 
                         <>
                             <Screen
                                 options={{
@@ -137,6 +143,12 @@ export function Routes() {
                                 }}
                                 name='Home'
                                 component={Home} 
+                            />
+
+                            <Screen 
+                                name='Records'
+                                component={Records}
+                                options={{ title: 'Corridas' }}
                             />
                         
                             <Screen 
@@ -162,14 +174,22 @@ export function Routes() {
                                 component={DetailEcoPoint}
                                 options={{ title: 'Ecopoint' }}
                             />
-        
                             <Screen 
-                                name='RouteToEcoPoint'
-                                component={RouteToEcoPoint}
-                                options={{ title: 'Ecopoint' }}
+                                name='RefundEcoBike'
+                                component={RefundEcoBike}
+                                options={{ title: 'Prossiga até o ecopoint' }}
                             />
+                        </> :
+                        <>
+                            <Group>
+                                <Screen 
+                                    name='RouteToEcoPoint'
+                                    component={RouteToEcoPoint}
+                                    options={{ title: 'Prossiga até o ecopoint' }}
+                                />
+                            </Group>
                         </>
-                    )}
+                    }
                 </Navigator>
             </NavigationContainer>
         </AppProvider>

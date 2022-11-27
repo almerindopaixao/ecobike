@@ -13,14 +13,20 @@ import { AuthContext } from '../../context/auth.provider';
 import { calculateFaturamento } from '../../utils';
 import { supabase } from '../../../infra/database/supabase/supabase.database';
 import { EcoBikeRepository } from '../../../infra/repositories/supabase/ecobike.repository';
+import { AuthRepository } from '../../../infra/repositories/supabase/auth.repository';
 import { EcoBikeController } from '../../../controllers/ecobike.controller';
+import { AuthController } from '../../../controllers/auth.controller';
+
 
 export function DetailEcoPoint() {
+    const authRepository = AuthRepository.getInstance(supabase);
     const ecoBikeRepository = EcoBikeRepository.getInstance(supabase);
+
+    const authController = AuthController.getInstance(authRepository);
     const ecoBikeController = EcoBikeController.getInstance(ecoBikeRepository);
 
     const [app] = useContext(AppContext);
-    const [auth] = useContext(AuthContext);
+    const [auth, setAuth] = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const route = useRoute();
@@ -57,8 +63,15 @@ export function DetailEcoPoint() {
                 )
                 return;
             }
-    
-            navigation.navigate('RouteToEcoPoint');
+
+           const { session } = await authController.session();
+
+           if (session) {
+            setAuth({
+                ...auth,
+                session
+            })   
+           }
         } catch (err) {
             console.log(err);
         } finally {

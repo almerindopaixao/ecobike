@@ -74,7 +74,7 @@ export function SelectEcoPoint() {
                 {ecopoints.map((ecopoint) => (
                     <Marker
                         key={ecopoint.id}
-                        onPress={() => handleGoDetailEcoPoint(ecopoint)}
+                        onPress={() => !!ecopoint.ecobikesDisponiveis && handleGoDetailEcoPoint(ecopoint)}
                         style={styles.mapMarker}
                         coordinate={{
                             latitude: ecopoint.latitude, 
@@ -82,6 +82,7 @@ export function SelectEcoPoint() {
                         }}
                     >
                         <EcoPointMarker 
+                            disabled={!ecopoint.ecobikesDisponiveis}
                             name={ecopoint.nome}
                             image_url={ecopoint.imagemSm}
                         />
