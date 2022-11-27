@@ -91,7 +91,37 @@ export class EcoBikeController {
                 }
             };
         } catch (err) {
-            return null;
+            return {
+                success: false,
+                error: {
+                    title: 'Ops, não foi possível efetuar o cancelamento',
+                    message: 'Erro desconhecido do servidor'
+                }
+            };
+        }
+    }
+
+    public async withdrawEcoBike(userId: string, ecobikeId: string) {
+        try {
+            const result = await this.ecoBikeRepository.withdrawEcoBike(userId, ecobikeId);
+            if (result.success) return { success: true };
+
+            return {
+                success: false,
+                error: {
+                    title: 'Ocorreu um erro desconhecido ao retirar a ecobike',
+                    message: result.error
+                }
+            }
+        } catch (err) {
+            console.log(err);
+            return { 
+                success: false,
+                error: {
+                    title: 'Ocorreu um erro desconhecido ao retirar a ecobike',
+                    message: JSON.stringify(err)
+                }
+            };
         }
     }
 }

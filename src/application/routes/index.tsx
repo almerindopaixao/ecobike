@@ -180,15 +180,11 @@ export function Routes() {
                                 options={{ title: 'Prossiga até o ecopoint' }}
                             />
                         </> :
-                        <>
-                            <Group>
-                                <Screen 
-                                    name='RouteToEcoPoint'
-                                    component={RouteToEcoPoint}
-                                    options={{ title: 'Prossiga até o ecopoint' }}
-                                />
-                            </Group>
-                        </>
+                        <Screen 
+                            name='RouteToEcoPoint'
+                            component={RouteToEcoPoint}
+                            options={{ title: 'Prossiga até o ecopoint' }}
+                        />
                     }
                 </Navigator>
             </NavigationContainer>

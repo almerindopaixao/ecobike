@@ -7,6 +7,7 @@ export interface UserSessionDto extends Session {
             id: string;
             status: EcobikeUserStatus;
             tempoPrevisto: number;
+            numSerie: string;
         } | null
     }
 }

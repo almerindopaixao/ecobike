@@ -53,7 +53,10 @@ export class AuthRepository implements IAuthRepository {
             .select(`
                 id:ecobike_id,
                 status,
-                tempoPrevisto:tempo_previsto
+                tempoPrevisto:tempo_previsto,
+                ecobikes(
+                    numSerie:num_serie
+                )
             `)
             .eq('user_id', session.user.id)
             .maybeSingle();
@@ -67,7 +70,13 @@ export class AuthRepository implements IAuthRepository {
             ...session,
             user: {
                 ...session.user,
-                ecobike: data
+                ecobike: data ? {
+                    id: data.id,
+                    status: data.status,
+                    tempoPrevisto: data.tempoPrevisto,
+                    numSerie: (data.ecobikes as { numSerie: string }).numSerie
+                } : 
+                null 
             }
         }
 

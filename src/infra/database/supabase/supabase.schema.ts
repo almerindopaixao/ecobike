@@ -13,7 +13,7 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      corridas: {
+      races: {
         Row: {
           id: string
           user_id: string
@@ -26,7 +26,7 @@ export interface Database {
           updated_at: string | null
         }
         Insert: {
-          id: string
+          id?: string
           user_id: string
           ecobike_Id: string
           tempo?: number | null

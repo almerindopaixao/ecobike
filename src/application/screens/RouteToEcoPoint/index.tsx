@@ -3,9 +3,11 @@ import Constants from 'expo-constants';
 import { 
     useContext, 
     useEffect, 
-    useState
+    useState,
+    useRef
 } from 'react';
 import { View, Text, Alert, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import MapView, { 
     Marker, 
     Polyline,
@@ -13,8 +15,9 @@ import MapView, {
 } from 'react-native-maps';
 import { MapGraph, GeographicPoint } from 'map-graph';
 import { FontAwesome } from '@expo/vector-icons';
+import { Modalize } from 'react-native-modalize';
 
-import { Loading } from '../../components';
+import { Loading, ConfirmModal } from '../../components';
 import { styles } from './styles';
 import { THEME } from '../../theme';
 
@@ -42,6 +45,7 @@ export function RouteToEcoPoint() {
     const ecoBikeController = EcoBikeController.getInstance(ecoBikeRepository);
 
     const [auth, setAuth] = useContext(AuthContext);
+    const modalRef = useRef<Modalize>(null);
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -66,6 +70,14 @@ export function RouteToEcoPoint() {
         ecoBikeNumSerie: ''
     });
 
+    function openWithdrawModal() {
+        modalRef.current?.open();
+    }
+
+    function closeWithdrawModal() {
+        modalRef.current?.close();
+    }
+
     function handleUserLocationChange(
         userPoint: GeographicPoint, 
         goalPoint: GeographicPoint
@@ -85,9 +97,18 @@ export function RouteToEcoPoint() {
             distance: route.distance,
             routeCoordinates: route.path
         });
+
+        // Abrir modal de confirmação de retirada
+        if (route.distance < 0.002) {
+            openWithdrawModal();
+            return;
+        }
+
+        // Fechar modal caso o usuário esteja longe do local de retirada
+        closeWithdrawModal();
     }
 
-    async function cancelarReserva() {
+    async function cancelReserva() {
         try {
             setIsLoading(true)
 
@@ -101,6 +122,40 @@ export function RouteToEcoPoint() {
                 );
             }
     
+            const { session } = await authController.session();
+
+            
+            if (session) {
+                closeWithdrawModal();
+
+                setAuth({
+                    ...auth,
+                    session
+                })   
+            }
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    async function handlePressWithdrawEcoBikeButton() {
+        try {
+            setIsLoading(true);
+
+            const userId = auth.session?.user.id as string;
+            const ecobikeId = auth.session?.user.ecobike?.id as string; 
+    
+            const result = await ecoBikeController.withdrawEcoBike(userId, ecobikeId);
+    
+            if (!result.success) {
+                Alert.alert(
+                    result.error?.title as string,
+                    result.error?.message
+                )
+            }
+
             const { session } = await authController.session();
     
             if (session) {
@@ -116,7 +171,7 @@ export function RouteToEcoPoint() {
         }
     }
 
-    function handlePressCancelarReservaButton() {
+    function handlePressCancelWithdrawEcoBikeButton() {
         Alert.alert(
             'Você deseja mesmo cancelar a reserva da ecobike ?',
             'Esta é uma ação irreversível, você será redirecionado para a tela inicial',[
@@ -126,11 +181,10 @@ export function RouteToEcoPoint() {
                 },
                 { 
                     text: 'Sim',
-                    onPress: () => cancelarReserva()
+                    onPress: () => cancelReserva()
                 },
             ]
         )
-        console.log('cancelar');
     }
 
     function createRoute(startPoint: GeographicPoint, goalPoint: GeographicPoint) {
@@ -156,6 +210,7 @@ export function RouteToEcoPoint() {
             try {
                 // Pegar EcoBike reservada do usuário
                 const userId = auth.session?.user.id as string
+
                 const reservedEcoBike =  await ecoBikeController.getReservedEcoBike(userId);
 
                 if (!reservedEcoBike) return;
@@ -212,84 +267,93 @@ export function RouteToEcoPoint() {
     if (!userLocation.routeCoordinates.length || isLoading) return <Loading />;
 
     return (
-        <View style={styles.container}>
-            <MapView
-                style={styles.map}
-                provider={PROVIDER_GOOGLE}
-                initialRegion={{
-                    latitude: userLocation.latitude,
-                    longitude: userLocation.longitude,
-                    latitudeDelta: LAT_DELTA,
-                    longitudeDelta: LNG_DELTA
-                }}
-            >
-                <Marker
-                    coordinate={{
+        <>
+            <View style={styles.container}>
+                <MapView
+                    style={styles.map}
+                    provider={PROVIDER_GOOGLE}
+                    initialRegion={{
                         latitude: userLocation.latitude,
-                        longitude: userLocation.longitude
+                        longitude: userLocation.longitude,
+                        latitudeDelta: LAT_DELTA,
+                        longitudeDelta: LNG_DELTA
                     }}
                 >
-                    <FontAwesome 
-                        name='street-view'
-                        color={THEME.COLORS.SECONDARY}
-                        size={35}
+                    <Marker
+                        coordinate={{
+                            latitude: userLocation.latitude,
+                            longitude: userLocation.longitude
+                        }}
+                    >
+                        <FontAwesome 
+                            name='street-view'
+                            color={THEME.COLORS.SECONDARY}
+                            size={35}
+                        />
+                    </Marker>
+
+                    <Marker
+                        coordinate={{
+                            latitude: goalEcoPoint.latitude, 
+                            longitude: goalEcoPoint.longitude
+                        }}
+                    >
+                        <FontAwesome 
+                            name='map-marker'
+                            color={THEME.COLORS.SECONDARY}
+                            size={35}
+                        />
+                    </Marker>
+
+                    <Polyline 
+                        strokeWidth={5}
+                        lineDashPattern={[0]}
+                        strokeColor={THEME.COLORS.GREY}
+                        coordinates={[
+                            { latitude: userLocation.latitude, longitude: userLocation.longitude },
+                            userLocation.routeCoordinates[0]?.toCordinates()
+                        ]}
                     />
-                </Marker>
 
-                <Marker
-                    coordinate={{
-                        latitude: goalEcoPoint.latitude, 
-                        longitude: goalEcoPoint.longitude
-                    }}
-                >
-                    <FontAwesome 
-                        name='map-marker'
-                        color={THEME.COLORS.SECONDARY}
-                        size={35}
+                    <Polyline 
+                        strokeWidth={5}
+                        lineDashPattern={[0]}
+                        strokeColor={THEME.COLORS.GREY}
+                        coordinates={[
+                            userLocation.routeCoordinates[userLocation.routeCoordinates?.length - 1].toCordinates(),
+                            { latitude: goalEcoPoint.latitude, longitude: goalEcoPoint.longitude },
+                        ]}
                     />
-                </Marker>
 
-                <Polyline 
-                    strokeWidth={5}
-                    lineDashPattern={[0]}
-                    strokeColor={THEME.COLORS.GREY}
-                    coordinates={[
-                        { latitude: userLocation.latitude, longitude: userLocation.longitude },
-                        userLocation.routeCoordinates[0]?.toCordinates()
-                    ]}
-                />
+                    <Polyline 
+                        strokeWidth={5}
+                        lineDashPattern={[0]}
+                        strokeColor={THEME.COLORS.PRIMARY}
+                        coordinates={userLocation.routeCoordinates.map((point) => point.toCordinates())}
+                    />
+                </MapView>
 
-                <Polyline 
-                    strokeWidth={5}
-                    lineDashPattern={[0]}
-                    strokeColor={THEME.COLORS.GREY}
-                    coordinates={[
-                        userLocation.routeCoordinates[userLocation.routeCoordinates?.length - 1].toCordinates(),
-                        { latitude: goalEcoPoint.latitude, longitude: goalEcoPoint.longitude },
-                    ]}
-                />
+                <View style={styles.card}>
+                    <View style={styles.content}>
+                        <Text style={styles.titleCard}>Sua ecobike foi reservada</Text>
+                        <Text style={styles.textTimeCard}>{formateDistance(userLocation.distance)}</Text>
+                    </View>
 
-                <Polyline 
-                    strokeWidth={5}
-                    lineDashPattern={[0]}
-                    strokeColor={THEME.COLORS.PRIMARY}
-                    coordinates={userLocation.routeCoordinates.map((point) => point.toCordinates())}
-                />
-            </MapView>
-
-            <View style={styles.card}>
-                <View style={styles.content}>
-                    <Text style={styles.titleCard}>Sua ecobike foi reservada</Text>
-                    <Text style={styles.textTimeCard}>{formateDistance(userLocation.distance)}</Text>
+                    <TouchableOpacity 
+                        style={styles.cancelButton}
+                        onPress={handlePressCancelWithdrawEcoBikeButton}
+                    >
+                        <Text style={styles.cancelButtonText}>Cancelar</Text>
+                    </TouchableOpacity>
                 </View>
-
-                <TouchableOpacity 
-                    style={styles.cancelButton}
-                    onPress={handlePressCancelarReservaButton}
-                >
-                    <Text style={styles.cancelButtonText}>Cancelar</Text>
-                </TouchableOpacity>
             </View>
-        </View>
+            <ConfirmModal 
+                customRef={modalRef}
+                onPressCancel={handlePressCancelWithdrawEcoBikeButton}
+                onPressConfirm={handlePressWithdrawEcoBikeButton}
+                numSerieEcoBike={auth.session?.user.ecobike?.numSerie as string}
+                tempoPrevistoCorrida={auth.session?.user.ecobike?.tempoPrevisto as number}
+            />
+        </>
     );
 }
