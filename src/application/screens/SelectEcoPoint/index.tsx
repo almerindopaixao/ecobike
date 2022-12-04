@@ -61,11 +61,17 @@ export function SelectEcoPoint() {
     }
 
     useEffect(() => {
+        // Atualização automática de ecopoints na tela
+        const interval = setInterval(async () => {
+            const result = await ecoPointController.listAllEcoPointsInRegion();
+            setEcopoints(result);
+        }, 5000); 
+
         (async () => {
             try {
               setLoading(true);
               await setCurrentCoords();
-
+              
               const result = await ecoPointController.listAllEcoPointsInRegion();
               setEcopoints(result);
             } catch (err) {
@@ -74,6 +80,8 @@ export function SelectEcoPoint() {
               setLoading(false);
             }
         })();
+
+        return () => clearInterval(interval);
     }, []);
 
     return (
