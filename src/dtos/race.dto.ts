@@ -1,7 +1,7 @@
 export interface RaceDto {
     id: string;
-    tempo: number | null;
-    faturamento: number | null;
-    dataHoraInicial: string | null;
-    dataHoraFinal: string | null;
+    tempo: number;
+    faturamento: number;
+    dataHoraInicial: string;
+    dataHoraFinal: string;
 }

@@ -16,6 +16,7 @@ import { EcoBikeRepository } from '../../../infra/repositories/supabase/ecobike.
 import { AuthRepository } from '../../../infra/repositories/supabase/auth.repository';
 import { EcoBikeController } from '../../../controllers/ecobike.controller';
 import { AuthController } from '../../../controllers/auth.controller';
+import { EcobikeUserStatus } from '../../../constants/app.contants';
 
 
 export function DetailEcoPoint() {
@@ -33,6 +34,8 @@ export function DetailEcoPoint() {
     const navigation = useNavigation();
 
     const params = route.params as DetailEcoPointParams;
+    const isRefund = 
+        auth.session?.user.ecobike?.status === EcobikeUserStatus.EM_USO
 
     function createAddresFromEcopoint(ecopoint: EcoPointDto) {
         const first_line = `${ecopoint.cidade}, ${ecopoint.estado}`;
@@ -79,6 +82,10 @@ export function DetailEcoPoint() {
         }
     }
 
+    function handleRefundButton() {
+        navigation.navigate('RefundEcoBikeRoutes', params)
+    }
+
     if (isLoading) return <Loading />
 
     return (
@@ -99,16 +106,21 @@ export function DetailEcoPoint() {
                 </Text>
             </View>
             <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Valor Estimado</Text>
-                <Text style={styles.valueText}>
-                    R$ {calculateFaturamento(app.time_usage)}
-                </Text>
+                {app.time_usage > 0 && (
+                    <>
+                        <Text style={styles.sectionTitle}>Valor Estimado</Text>
+                        <Text style={styles.valueText}>
+                            R$ {calculateFaturamento(app.time_usage)}
+                        </Text>
+                    </>
+                    )
+                }
             </View>
             <View style={styles.buttonsContainer}>
                 <AppButton 
-                    onPress={handleReserveButton}
+                    onPress={() => isRefund ? handleRefundButton() : handleReserveButton()}
                     type='primary' 
-                    text='Reservar'
+                    text={isRefund ? 'Devolver' : 'Reservar'}
                 />
                 <AppButton 
                     onPress={handleCancelButton}

@@ -33,8 +33,12 @@ export function Home() {
   const navigation = useNavigation();
   const [auth] = useContext(AuthContext);
 
-  function handleGoReserveEcobike() {
+  function handleGoReserveEcoBike() {
     navigation.navigate('SelectLocation');
+  }
+
+  function handleGoRefundEcoBike() {
+    navigation.navigate('SelectEcoPoint');
   }
 
   function handleGoRecords() {
@@ -115,7 +119,11 @@ export function Home() {
               'Reservar EcoBike'
             }
             icon='directions-bike'
-            onPress={handleGoReserveEcobike}
+            onPress={ 
+              auth.session?.user.ecobike?.status === EcobikeUserStatus.EM_USO ?         
+              handleGoRefundEcoBike : 
+              handleGoReserveEcoBike
+            }
           />
 
           <CallToAction 

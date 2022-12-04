@@ -7,4 +7,5 @@ export { EcoPointMarker } from './EcoPointMarker';
 export { AppButton } from './AppButton';
 export { ExitButton } from './ExitButton';
 export { ConfirmModal } from './ConfirmModal';
+export { AlertModal } from './AlertModal';
 export { Race } from './Race';

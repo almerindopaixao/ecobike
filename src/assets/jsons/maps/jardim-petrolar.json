@@ -683,6 +683,452 @@
     },
     {
         "start": {
+            "latitude": -12.157380317221836, 
+            "longitude": -38.41839154738648 
+        },
+        "end": {
+            "latitude": -12.157234137639062,
+            "longitude": -38.4184358038331
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157234137639062,
+            "longitude": -38.4184358038331
+        },
+        "end": {
+            "latitude": -12.157172873686408,
+            "longitude": -38.41856986791609
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157172873686408,
+            "longitude": -38.41856986791609
+        },
+        "end": {
+            "latitude": -12.157081757201121, 
+            "longitude": -38.418616806579266
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157172873686408,
+            "longitude": -38.41856986791609
+        },
+        "end": {
+            "latitude": -12.157261368081157, 
+            "longitude": -38.41873951763582
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157185328453574,
+            "longitude": -38.418785785739125
+        },
+        "end": {
+            "latitude": -12.157261368081157, 
+            "longitude": -38.41873951763582
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157261368081157, 
+            "longitude": -38.41873951763582
+        },
+        "end": {
+            "latitude": -12.157316431249303, 
+            "longitude": -38.41876298696616
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157316431249303, 
+            "longitude": -38.41876298696616
+        },
+        "end": {
+            "latitude": -12.157405581111755,
+            "longitude": -38.418942024413425
+        },
+        "roadName": "Quinto Travessa Santa Maria"
+    },
+    {
+        "start": {
+            "latitude": -12.157405581111755,
+            "longitude": -38.418942024413425
+        },
+        "end": {
+            "latitude": -12.157443600896775,
+            "longitude": -38.41874287040356
+        },
+        "roadName": "Quinto Travessa Santa Maria"
+    },
+    {
+        "start": {
+            "latitude": -12.157316431249303, 
+            "longitude": -38.41876298696616
+        },
+        "end": {
+            "latitude": -12.157443600896775,
+            "longitude": -38.41874287040356
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157443600896775,
+            "longitude": -38.41874287040356
+        },
+        "end": {
+            "latitude": -12.157534061746018,
+            "longitude": -38.41863155872737
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157534061746018,
+            "longitude": -38.41863155872737
+        },
+        "end": {
+            "latitude": -12.15742590203517, 
+            "longitude": -38.41840558262235
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.15742590203517, 
+            "longitude": -38.41840558262235
+        },
+        "end": {
+            "latitude": -12.157380317221836, 
+            "longitude": -38.41839154738648 
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157689418346388, 
+            "longitude": -38.418342550707344
+        },
+        "end": {
+            "latitude": -12.15742590203517, 
+            "longitude": -38.41840558262235
+        },
+        "teste": "Chegando na rotatória vindo para a uneb",
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.161763742854008,
+            "longitude": -38.416115667264506
+        },
+        "end": {
+            "latitude": -12.157689418346388, 
+            "longitude": -38.418342550707344
+        },
+        "teste": "Chegando na rotatória vindo para a uneb",
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.162673717748921, 
+            "longitude": -38.41547408718363
+        },
+        "end": {
+            "latitude": -12.161763742854008,
+            "longitude": -38.416115667264506
+        },
+        "teste": "Chegando na rotatória vindo para a uneb",
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.157534061746018,
+            "longitude": -38.41863155872737
+        },
+        "end": {
+            "latitude": -12.15772678257839, 
+            "longitude": -38.41844045133962
+        },
+        "roadName": "Av. Joseph Wagner",
+        "teste": "Saindo da rotatória indo para a uneb"
+    },
+    {
+        "start": {
+            "latitude": -12.15772678257839, 
+            "longitude": -38.41844045133962
+        },
+        "end": {
+            "latitude": -12.16184206013065,
+            "longitude": -38.4162645092673
+        },
+        "roadName": "Av. Joseph Wagner",
+        "teste": "Saindo da rotatória indo para a uneb"
+    },
+    {
+        "start": {
+            "latitude": -12.16184206013065,
+            "longitude": -38.4162645092673
+        },
+        "end": {
+            "latitude": -12.162673717748921, 
+            "longitude": -38.41547408718363
+        },
+        "roadName": "Av. Joseph Wagner",
+        "teste": "Saindo da rotatória indo para a uneb"
+    },
+    {
+        "start": {
+            "latitude": -12.162673717748921, 
+            "longitude": -38.41547408718363
+        },
+        "end": {
+            "latitude": -12.163543334849848, 
+            "longitude": -38.41461265421609
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.163543334849848, 
+            "longitude": -38.41461265421609
+        },
+        "end": {
+            "latitude": -12.162673717748921, 
+            "longitude": -38.41547408718363
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.163543334849848, 
+            "longitude": -38.41461265421609
+        },
+        "end": {
+            "latitude": -12.165685456609749, 
+            "longitude": -38.41133683024153
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.165685456609749, 
+            "longitude": -38.41133683024153
+        },
+        "end": {
+            "latitude": -12.163543334849848, 
+            "longitude": -38.41461265421609
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.165685456609749, 
+            "longitude": -38.41133683024153
+        },
+        "end": {
+            "latitude": -12.166264637194503, 
+            "longitude": -38.41088787969463
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.166264637194503, 
+            "longitude": -38.41088787969463
+        },
+        "end": {
+            "latitude": -12.165685456609749, 
+            "longitude": -38.41133683024153
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.166264637194503, 
+            "longitude": -38.41088787969463
+        },
+        "end": {
+            "latitude": -12.166633411477266,
+            "longitude": -38.41081207155194
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.166633411477266,
+            "longitude": -38.41081207155194
+        },
+        "end": {
+            "latitude": -12.166264637194503, 
+            "longitude": -38.41088787969463
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.166633411477266,
+            "longitude": -38.41081207155194
+        },
+        "end": {
+            "latitude": -12.167367560188692, 
+            "longitude": -38.41095825195277
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.167367560188692, 
+            "longitude": -38.41095825195277
+        },
+        "end": {
+            "latitude": -12.166633411477266,
+            "longitude": -38.41081207155194
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.167367560188692, 
+            "longitude": -38.41095825195277
+        },
+        "end": {
+            "latitude": -12.170566327408544,
+            "longitude": -38.41366124807076
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.170566327408544,
+            "longitude": -38.41366124807076
+        },
+        "end": {
+            "latitude": -12.167367560188692, 
+            "longitude": -38.41095825195277
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.170566327408544,
+            "longitude": -38.41366124807076
+        },
+        "end": {
+            "latitude": -12.171351809959118, 
+            "longitude": -38.414177705973636
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.171351809959118, 
+            "longitude": -38.414177705973636
+        },
+        "end": {
+            "latitude": -12.170566327408544,
+            "longitude": -38.41366124807076
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.171351809959118, 
+            "longitude": -38.414177705973636
+        },
+        "end": {
+            "latitude": -12.171902411913274,
+            "longitude": -38.41433126243586
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.171902411913274,
+            "longitude": -38.41433126243586
+        },
+        "end": {
+            "latitude": -12.171351809959118, 
+            "longitude": -38.414177705973636
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.171902411913274,
+            "longitude": -38.41433126243586
+        },
+        "end": {
+            "latitude": -12.17562051818275,
+            "longitude": -38.41470945526978
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.17562051818275,
+            "longitude": -38.41470945526978
+        },
+        "end": {
+            "latitude": -12.171902411913274,
+            "longitude": -38.41433126243586
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.17562051818275,
+            "longitude": -38.41470945526978
+        },
+        "end": {
+            "latitude": -12.176814779400118,
+            "longitude": -38.415072224026616
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.176814779400118,
+            "longitude": -38.415072224026616
+        },
+        "end": {
+            "latitude": -12.17562051818275,
+            "longitude": -38.41470945526978
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.176814779400118,
+            "longitude": -38.415072224026616
+        },
+        "end": {
+            "latitude": -12.176481802608658,
+            "longitude": -38.41393966127598
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
+            "latitude": -12.176481802608658,
+            "longitude": -38.41393966127598
+        },
+        "end": {
+            "latitude": -12.176814779400118,
+            "longitude": -38.415072224026616
+        },
+        "roadName": "Av. Joseph Wagner"
+    },
+    {
+        "start": {
             "latitude": -12.156358810634583, 
             "longitude": -38.41023637978768
         },

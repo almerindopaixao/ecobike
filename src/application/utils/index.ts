@@ -18,11 +18,13 @@ export function formateDistance(distance: number): string {
     return `${distance.toFixed(2)} km`
 }
 
+
 export function toHoursAndMinutes(totalMinutes: number): string {
     const hours = Math.floor(totalMinutes / 60);
-    const minutes = totalMinutes % 60;
+    const minutes = Math.ceil(totalMinutes % 60);
 
     if (hours === 0) return `${minutes}min`;
-    if (minutes === 0) return `${hours}h`
+    if (minutes === 0) return `${hours}h`;
+
     return `${hours}h${minutes}min`;
 }

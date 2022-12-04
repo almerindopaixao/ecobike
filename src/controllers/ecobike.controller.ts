@@ -1,4 +1,4 @@
-import { PostgrestError } from '@supabase/supabase-js';
+import { RaceDto } from '../dtos/race.dto';
 import { IEcoBikeRepository } from '../infra/repositories/supabase/ecobike.repository';
 
 export class EcoBikeController {
@@ -114,11 +114,43 @@ export class EcoBikeController {
                 }
             }
         } catch (err) {
-            console.log(err);
             return { 
                 success: false,
                 error: {
                     title: 'Ocorreu um erro desconhecido ao retirar a ecobike',
+                    message: JSON.stringify(err)
+                }
+            };
+        }
+    }
+
+    public async refundEcoBike(
+        userId: string, 
+        ecobikeId: string,
+        ecopointId: string,
+        data: Omit<RaceDto, 'id'>) {
+        try {
+            const result = await this.ecoBikeRepository.refundEcoBike(
+                userId, 
+                ecobikeId,
+                ecopointId,
+                data
+            );
+            
+            if (result.success) return { success: true };
+
+            return {
+                success: false,
+                error: {
+                    title: 'Ocorreu um erro desconhecido ao devolver a ecobike',
+                    message: result.error
+                }
+            }
+        } catch (err) {
+            return { 
+                success: false,
+                error: {
+                    title: 'Ocorreu um erro desconhecido ao devolver a ecobike',
                     message: JSON.stringify(err)
                 }
             };

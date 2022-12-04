@@ -3,6 +3,11 @@ import { EcoPointDto } from "../../dtos/ecopoint.dto";
 export interface DetailEcoPointParams {
     ecopoint: EcoPointDto
 }
+
+export interface RefundEcoBikeRoutesParams {
+    ecopoint: EcoPointDto
+}
+
 export declare global {
     namespace ReactNavigation {
         interface RootParamList {
@@ -12,7 +17,7 @@ export declare global {
             SelectUsageTime: undefined;
             DetailEcoPoint: DetailEcoPointParams;
             RouteToEcoPoint: undefined;
-            RefundEcoBike: undefined;
+            RefundEcoBikeRoutes: RefundEcoBikeRoutesParams;
             Records: undefined;
         }
     }

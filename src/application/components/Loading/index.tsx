@@ -1,4 +1,4 @@
-import { View, ActivityIndicator, StyleProp, ViewStyle } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
 import { styles } from './styles';
 import { THEME } from '../../theme';

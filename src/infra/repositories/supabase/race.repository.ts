@@ -1,3 +1,4 @@
+import { PostgrestError } from "@supabase/supabase-js";
 import { RaceDto } from "../../../dtos/race.dto";
 import { ISupabaseClient } from "../../database/supabase/supabase.database";
 

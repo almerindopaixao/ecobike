@@ -54,6 +54,7 @@ export class AuthRepository implements IAuthRepository {
                 id:ecobike_id,
                 status,
                 tempoPrevisto:tempo_previsto,
+                dataHoraInicial:data_hora_inicial,
                 ecobikes(
                     numSerie:num_serie
                 )
@@ -74,7 +75,8 @@ export class AuthRepository implements IAuthRepository {
                     id: data.id,
                     status: data.status,
                     tempoPrevisto: data.tempoPrevisto,
-                    numSerie: (data.ecobikes as { numSerie: string }).numSerie
+                    numSerie: (data.ecobikes as { numSerie: string }).numSerie,
+                    dataHoraInicial: data.dataHoraInicial
                 } : 
                 null 
             }

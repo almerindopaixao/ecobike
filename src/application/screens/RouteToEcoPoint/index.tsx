@@ -23,6 +23,7 @@ import { THEME } from '../../theme';
 import { AuthContext } from '../../context/auth.provider';
 import { formateDistance } from '../../utils';
 
+import { UserSessionDto } from '../../../dtos/user-session.dto';
 import { supabase } from '../../../infra/database/supabase/supabase.database';
 import { EcoBikeRepository } from '../../../infra/repositories/supabase/ecobike.repository';
 import { AuthRepository } from '../../../infra/repositories/supabase/auth.repository';
@@ -46,6 +47,7 @@ export function RouteToEcoPoint() {
     const [auth, setAuth] = useContext(AuthContext);
     const modalRef = useRef<Modalize>(null);
 
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [userLocation, setUserLocation] = useState<{
@@ -69,11 +71,14 @@ export function RouteToEcoPoint() {
         ecoBikeNumSerie: ''
     });
 
+   
     function openWithdrawModal() {
+        setModalIsOpen(true);
         modalRef.current?.open();
     }
 
     function closeWithdrawModal() {
+        setModalIsOpen(false);
         modalRef.current?.close();
     }
 
@@ -96,15 +101,6 @@ export function RouteToEcoPoint() {
             distance: route.distance,
             routeCoordinates: route.path
         });
-
-        // Abrir modal de confirmação de retirada
-        if (route.distance > 0.002) {
-            openWithdrawModal();
-            return;
-        }
-
-        // Fechar modal caso o usuário esteja longe do local de retirada
-        closeWithdrawModal();
     }
 
     async function cancelReserva() {
@@ -201,6 +197,22 @@ export function RouteToEcoPoint() {
 
         return mapGraph.aStarSearch(neighborStartPoint, neighborGoalPoint);
     }
+
+    
+    useEffect(() => {
+        // Abrir modal de confirmação de retirada
+        if (userLocation.distance >= 0.002 && !modalIsOpen) {
+            openWithdrawModal();
+            return;
+        }
+
+        // Fechar modal caso o usuário esteja longe do local de retirada
+        if (userLocation.distance < 0.002 && modalIsOpen) {
+            closeWithdrawModal();
+            return;
+        }
+
+    }, [userLocation]);
 
     useEffect(() => {
         let subscription: Location.LocationSubscription;
@@ -334,7 +346,7 @@ export function RouteToEcoPoint() {
 
                 <View style={styles.card}>
                     <View style={styles.content}>
-                        <Text style={styles.titleCard}>Sua ecobike foi reservada</Text>
+                        <Text style={styles.titleCard}>Distância até o ecopoint</Text>
                         <Text style={styles.textTimeCard}>{formateDistance(userLocation.distance)}</Text>
                     </View>
 
@@ -350,8 +362,7 @@ export function RouteToEcoPoint() {
                 customRef={modalRef}
                 onPressCancel={handlePressCancelWithdrawEcoBikeButton}
                 onPressConfirm={handlePressWithdrawEcoBikeButton}
-                numSerieEcoBike={auth.session?.user.ecobike?.numSerie as string}
-                tempoPrevistoCorrida={auth.session?.user.ecobike?.tempoPrevisto as number}
+                session={auth.session as UserSessionDto}
             />
         </>
     );

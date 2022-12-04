@@ -18,10 +18,10 @@ export interface Database {
           id: string
           user_id: string
           ecobike_Id: string
-          tempo: number | null
-          faturamento: number | null
-          data_hora_inicial: string | null
-          data_hora_final: string | null
+          tempo: number
+          faturamento: number
+          data_hora_inicial: string
+          data_hora_final: string
           created_at: string | null
           updated_at: string | null
         }
@@ -29,10 +29,10 @@ export interface Database {
           id?: string
           user_id: string
           ecobike_Id: string
-          tempo?: number | null
-          faturamento?: number | null
-          data_hora_inicial?: string | null
-          data_hora_final?: string | null
+          tempo?: number
+          faturamento?: number
+          data_hora_inicial?: string
+          data_hora_final?: string
           created_at?: string | null
           updated_at?: string | null
         }
@@ -40,10 +40,10 @@ export interface Database {
           id?: string
           user_id?: string
           ecobike_Id?: string
-          tempo?: number | null
-          faturamento?: number | null
-          data_hora_inicial?: string | null
-          data_hora_final?: string | null
+          tempo?: number
+          faturamento?: number
+          data_hora_inicial?: string
+          data_hora_final?: string
           created_at?: string | null
           updated_at?: string | null
         }
@@ -80,6 +80,7 @@ export interface Database {
           user_id: string
           status: EcobikeUserStatus
           tempo_previsto: number
+          data_hora_inicial: string | null
           created_at: string | null
           updated_at: string | null
         }
@@ -88,6 +89,7 @@ export interface Database {
           user_id: string
           status: number
           tempo_previsto: number
+          data_hora_inicial: string | null
           created_at?: string | null
           updated_at?: string | null
         }
@@ -96,6 +98,7 @@ export interface Database {
           user_id?: string
           status?: number
           tempo_previsto?: number
+          data_hora_inicial?: string | null
           created_at?: string | null
           updated_at?: string | null
         }
@@ -795,7 +798,7 @@ export interface Database {
         Returns: unknown
       }
       get_ecobikes_availables_from_ecopoint: {
-        Args: { ecopoint_id: string }
+        Args: { current_eco_point_id: string }
         Returns: { id: string }
       }
       get_reserved_ecobike_from_user: {

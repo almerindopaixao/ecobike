@@ -47,7 +47,7 @@ export function Race({ data }: RaceProps) {
                                 size={20} 
                             />
                             <Text style={styles.text}>
-                                R$ {data.faturamento}
+                                R$ {data.faturamento.toFixed(2)}
                             </Text>
                         </View>
                         <View style={styles.row}>

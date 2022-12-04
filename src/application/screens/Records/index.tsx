@@ -4,6 +4,7 @@ import {
     useContext 
 } from 'react';
 import { Text, FlatList, ListRenderItem } from "react-native";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './styles';
 import { Race, Loading } from '../../components';
 
@@ -13,7 +14,6 @@ import { AuthContext } from '../../context/auth.provider';
 import { supabase } from '../../../infra/database/supabase/supabase.database';
 import { RaceRepository } from '../../../infra/repositories/supabase/race.repository';
 import { RaceController } from '../../../controllers/race.controller';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function Records() {
     const raceRepository = RaceRepository.getInstance(supabase);

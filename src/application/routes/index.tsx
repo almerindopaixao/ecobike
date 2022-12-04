@@ -11,7 +11,7 @@ import {
     SelectUsageTime,
     DetailEcoPoint,
     RouteToEcoPoint,
-    RefundEcoBike,
+    RefundEcoBikeRoutes,
     Records
 } from '../screens';
 import { Loading, Logotipo, ExitButton } from '../components';
@@ -30,7 +30,7 @@ export function Routes() {
     const authRepository = AuthRepository.getInstance(supabase);
     const authController = AuthController.getInstance(authRepository);
 
-    const { Navigator, Screen, Group } = createNativeStackNavigator();
+    const { Navigator, Screen } = createNativeStackNavigator();
     const [auth, setAuth] = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -175,8 +175,8 @@ export function Routes() {
                                 options={{ title: 'Ecopoint' }}
                             />
                             <Screen 
-                                name='RefundEcoBike'
-                                component={RefundEcoBike}
+                                name='RefundEcoBikeRoutes'
+                                component={RefundEcoBikeRoutes}
                                 options={{ title: 'Prossiga até o ecopoint' }}
                             />
                         </> :
