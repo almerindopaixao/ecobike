@@ -102,11 +102,6 @@ export function RefundEcoBikeRoutes() {
         alertModalRef.current?.open();
     }
 
-    function closeAlertModal() {
-        setAlertModalIsOpen(false);
-        alertModalRef.current?.close();
-    }
-
     async function handleUserLocationChange(
         userPoint: GeographicPoint, 
         goalPoint: GeographicPoint
@@ -140,7 +135,7 @@ export function RefundEcoBikeRoutes() {
 
     async function handlePressConfirmAlertButton() {
         try {
-            closeAlertModal();
+            alertModalRef.current?.close();
             setIsLoading(true);
 
             const userId = auth.session?.user.id as string;
@@ -189,6 +184,7 @@ export function RefundEcoBikeRoutes() {
             navigation.navigate('Home');
         } catch (err) {
             console.log(err);
+            setAlertModalIsOpen(false);
             setIsLoading(false);
         }
     }
