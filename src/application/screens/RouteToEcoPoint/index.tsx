@@ -201,13 +201,13 @@ export function RouteToEcoPoint() {
     
     useEffect(() => {
         // Abrir modal de confirmação de retirada
-        if (userLocation.distance >= 0.002 && !modalIsOpen) {
+        if (userLocation.distance < 0.002 && !modalIsOpen) {
             openWithdrawModal();
             return;
         }
 
         // Fechar modal caso o usuário esteja longe do local de retirada
-        if (userLocation.distance < 0.002 && modalIsOpen) {
+        if (userLocation.distance >= 0.002 && modalIsOpen) {
             closeWithdrawModal();
             return;
         }

@@ -193,13 +193,13 @@ export function RefundEcoBikeRoutes() {
         if (alertModalIsOpen) return;
 
         // Abrir modal de confirmação de entrega da ecobike
-        if (userLocation.distance >= 0.002 && !confirmModalIsOpen) {
+        if (userLocation.distance < 0.002 && !confirmModalIsOpen) {
             openConfirmModal();
             return;
         }
 
         // Fechar modal caso o usuário esteja longe do local de entrega
-        if (userLocation.distance < 0.002 && confirmModalIsOpen) {
+        if (userLocation.distance >= 0.002 && confirmModalIsOpen) {
             closeConfirmModal();
             return;
         }
